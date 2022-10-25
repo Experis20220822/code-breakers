@@ -4,9 +4,9 @@ import scoverage.ScoverageKeys
 import uk.gov.hmrc.DefaultBuildSettings
 import uk.gov.hmrc.versioning.SbtGitVersioning.autoImport.majorVersion
 
-lazy val appName: String = "code breakers"
-val testContainersScalaVersion = "0.40.11"
+lazy val appName: String = "heatwave"
 val silencerVersion = "1.6.0"
+
 addCommandAlias("fmt", "scalafmt;scalafmtSbt;test:scalafmt;it:scalafmt")
 
 lazy val root = (project in file("."))
@@ -104,32 +104,12 @@ lazy val itSettings = Defaults.itSettings ++ Seq(
   )
 )
 
-
-scalaVersion := "2.13.10"
-
 libraryDependencies ++= AppDependencies()
 
-name := """code-breakers"""
-organization := "com.code-breakers"
+name := """heatwave"""
+organization := "com.xyzcorp"
+
 version := sys.env.getOrElse("BUILD_ID", "0.1")
-
-libraryDependencies ++= Seq(
-  guice,
-
-  // web for test containers %% name for container %% val from line 9 %% scope
-  "com.dimafeng" %% "testcontainers-scala-scalatest" % testContainersScalaVersion % "test",
-  "com.dimafeng" %% "testcontainers-scala-mongodb" % testContainersScalaVersion % "test",
-  "org.mongodb.scala" %% "mongo-scala-driver" % "4.6.0",
-  "org.webjars.npm" % "bootstrap" % "5.2.2",
-  "org.scalatestplus.play" %% "scalatestplus-play" % "5.0.0" % Test
-)
-
-
-// Adds additional packages into Twirl
-//TwirlKeys.templateImports += "com.code-breakers.controllers._"
-
-// Adds additional packages into conf/routes
-// play.sbt.routes.RoutesKeys.routesImport += "com.code-breakers.binders._"
 
 import com.typesafe.sbt.packager.docker.DockerChmodType
 
@@ -139,8 +119,7 @@ dockerExposedPorts ++= Seq(9000, 9001)
 
 dockerBaseImage := "eclipse-temurin:11"
 
-Docker/packageName := sys.env.getOrElse("JOB_NAME", "code-breakers")
-
+Docker/packageName := sys.env.getOrElse("JOB_NAME", "heatwave")
 
 Universal/javaOptions ++= Seq(
   // JVM memory tuning
@@ -166,3 +145,4 @@ Universal/javaOptions ++= Seq(
   // You may also want to include this setting if you use play evolutions
   //"-DapplyEvolutions.default=true"
 )
+

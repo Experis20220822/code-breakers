@@ -1,0 +1,97 @@
+[0m[[0m[33mwarn[0m] [0m[0m-target is deprecated: Use -release instead to compile against the correct platform API.[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/laura/Documents/FullStackAcademy/code-breakers/app/Module.scala:7:15: Unused import[0m
+[0m[[0m[33mwarn[0m] [0m[0mimport config.AppConfig[0m
+[0m[[0m[33mwarn[0m] [0m[0m              ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/laura/Documents/FullStackAcademy/code-breakers/app/Module.scala:8:20: Unused import[0m
+[0m[[0m[33mwarn[0m] [0m[0mimport controllers.HomeController[0m
+[0m[[0m[33mwarn[0m] [0m[0m                   ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/laura/Documents/FullStackAcademy/code-breakers/app/Module.scala:11:19: Unused import[0m
+[0m[[0m[33mwarn[0m] [0m[0mimport views.html.index[0m
+[0m[[0m[33mwarn[0m] [0m[0m                  ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/laura/Documents/FullStackAcademy/code-breakers/app/Module.scala:13:29: Unused import[0m
+[0m[[0m[33mwarn[0m] [0m[0mimport java.lang.annotation.Target[0m
+[0m[[0m[33mwarn[0m] [0m[0m                            ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/laura/Documents/FullStackAcademy/code-breakers/app/Module.scala:18:9: local method databaseProvider in method configure is never used[0m
+[0m[[0m[33mwarn[0m] [0m[0m    def databaseProvider(configuration: Configuration): MongoDatabase = {[0m
+[0m[[0m[33mwarn[0m] [0m[0m        ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/laura/Documents/FullStackAcademy/code-breakers/app/controllers/HomeController.scala:12:36: Unused import[0m
+[0m[[0m[33mwarn[0m] [0m[0mimport play.api.i18n.{I18nSupport, Lang}[0m
+[0m[[0m[33mwarn[0m] [0m[0m                                   ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/laura/Documents/FullStackAcademy/code-breakers/app/controllers/HomeController.scala:13:72: Unused import[0m
+[0m[[0m[33mwarn[0m] [0m[0mimport play.api.mvc.{Action, AnyContent, MessagesControllerComponents, Request}[0m
+[0m[[0m[33mwarn[0m] [0m[0m                                                                       ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/laura/Documents/FullStackAcademy/code-breakers/app/controllers/HomeController.scala:14:26: Unused import[0m
+[0m[[0m[33mwarn[0m] [0m[0mimport play.filters.csrf.CSRF[0m
+[0m[[0m[33mwarn[0m] [0m[0m                         ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/laura/Documents/FullStackAcademy/code-breakers/app/controllers/HomeController.scala:19:44: Unused import[0m
+[0m[[0m[33mwarn[0m] [0m[0mimport scala.concurrent.{ExecutionContext, Future}[0m
+[0m[[0m[33mwarn[0m] [0m[0m                                           ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/laura/Documents/FullStackAcademy/code-breakers/app/controllers/LoginController.scala:12:36: Unused import[0m
+[0m[[0m[33mwarn[0m] [0m[0mimport play.api.i18n.{I18nSupport, Lang}[0m
+[0m[[0m[33mwarn[0m] [0m[0m                                   ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/laura/Documents/FullStackAcademy/code-breakers/app/controllers/LoginController.scala:13:72: Unused import[0m
+[0m[[0m[33mwarn[0m] [0m[0mimport play.api.mvc.{Action, AnyContent, MessagesControllerComponents, Request}[0m
+[0m[[0m[33mwarn[0m] [0m[0m                                                                       ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/laura/Documents/FullStackAcademy/code-breakers/app/controllers/LoginController.scala:14:26: Unused import[0m
+[0m[[0m[33mwarn[0m] [0m[0mimport play.filters.csrf.CSRF[0m
+[0m[[0m[33mwarn[0m] [0m[0m                         ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/laura/Documents/FullStackAcademy/code-breakers/app/controllers/LoginController.scala:19:44: Unused import[0m
+[0m[[0m[33mwarn[0m] [0m[0mimport scala.concurrent.{ExecutionContext, Future}[0m
+[0m[[0m[33mwarn[0m] [0m[0m                                           ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/laura/Documents/FullStackAcademy/code-breakers/app/controllers/RegisterController.scala:12:36: Unused import[0m
+[0m[[0m[33mwarn[0m] [0m[0mimport play.api.i18n.{I18nSupport, Lang}[0m
+[0m[[0m[33mwarn[0m] [0m[0m                                   ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/laura/Documents/FullStackAcademy/code-breakers/app/controllers/RegisterController.scala:13:72: Unused import[0m
+[0m[[0m[33mwarn[0m] [0m[0mimport play.api.mvc.{Action, AnyContent, MessagesControllerComponents, Request}[0m
+[0m[[0m[33mwarn[0m] [0m[0m                                                                       ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/laura/Documents/FullStackAcademy/code-breakers/app/controllers/RegisterController.scala:14:26: Unused import[0m
+[0m[[0m[33mwarn[0m] [0m[0mimport play.filters.csrf.CSRF[0m
+[0m[[0m[33mwarn[0m] [0m[0m                         ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/laura/Documents/FullStackAcademy/code-breakers/app/controllers/RegisterController.scala:19:44: Unused import[0m
+[0m[[0m[33mwarn[0m] [0m[0mimport scala.concurrent.{ExecutionContext, Future}[0m
+[0m[[0m[33mwarn[0m] [0m[0m                                           ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/laura/Documents/FullStackAcademy/code-breakers/app/repositories/SessionRepository.scala:52:8: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method toFuture,[0m
+[0m[[0m[33mwarn[0m] [0m[0mor remove the empty argument list from its definition (Java-defined methods are exempt).[0m
+[0m[[0m[33mwarn[0m] [0m[0mIn Scala 3, an unapplied method like this will be eta-expanded into a function.[0m
+[0m[[0m[33mwarn[0m] [0m[0m      .toFuture[0m
+[0m[[0m[33mwarn[0m] [0m[0m       ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/laura/Documents/FullStackAcademy/code-breakers/app/repositories/SessionRepository.scala:60:12: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method headOption,[0m
+[0m[[0m[33mwarn[0m] [0m[0mor remove the empty argument list from its definition (Java-defined methods are exempt).[0m
+[0m[[0m[33mwarn[0m] [0m[0mIn Scala 3, an unapplied method like this will be eta-expanded into a function.[0m
+[0m[[0m[33mwarn[0m] [0m[0m          .headOption[0m
+[0m[[0m[33mwarn[0m] [0m[0m           ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/laura/Documents/FullStackAcademy/code-breakers/app/repositories/SessionRepository.scala:73:8: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method toFuture,[0m
+[0m[[0m[33mwarn[0m] [0m[0mor remove the empty argument list from its definition (Java-defined methods are exempt).[0m
+[0m[[0m[33mwarn[0m] [0m[0mIn Scala 3, an unapplied method like this will be eta-expanded into a function.[0m
+[0m[[0m[33mwarn[0m] [0m[0m      .toFuture[0m
+[0m[[0m[33mwarn[0m] [0m[0m       ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/laura/Documents/FullStackAcademy/code-breakers/app/repositories/SessionRepository.scala:80:8: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method toFuture,[0m
+[0m[[0m[33mwarn[0m] [0m[0mor remove the empty argument list from its definition (Java-defined methods are exempt).[0m
+[0m[[0m[33mwarn[0m] [0m[0mIn Scala 3, an unapplied method like this will be eta-expanded into a function.[0m
+[0m[[0m[33mwarn[0m] [0m[0m      .toFuture[0m
+[0m[[0m[33mwarn[0m] [0m[0m       ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/laura/Documents/FullStackAcademy/code-breakers/conf/routes: Unused import[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/laura/Documents/FullStackAcademy/code-breakers/conf/routes: Unused import[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/laura/Documents/FullStackAcademy/code-breakers/conf/routes: Unused import[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/laura/Documents/FullStackAcademy/code-breakers/conf/routes: Unused import[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/laura/Documents/FullStackAcademy/code-breakers/conf/routes: Unused import[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/laura/Documents/FullStackAcademy/code-breakers/conf/routes: Unused import[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/laura/Documents/FullStackAcademy/code-breakers/app/views/IndexPage.scala.html:1:1: Unused import[0m
+[0m[[0m[33mwarn[0m] [0m[0m@*[0m
+[0m[[0m[33mwarn[0m] [0m[0m^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/laura/Documents/FullStackAcademy/code-breakers/app/views/Layout.scala.html:1:1: Unused import[0m
+[0m[[0m[33mwarn[0m] [0m[0m@*[0m
+[0m[[0m[33mwarn[0m] [0m[0m^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/laura/Documents/FullStackAcademy/code-breakers/app/views/Layout.scala.html:6:27: Unused import[0m
+[0m[[0m[33mwarn[0m] [0m[0m@import views.html.helper.CSPNonce[0m
+[0m[[0m[33mwarn[0m] [0m[0m                          ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/laura/Documents/FullStackAcademy/code-breakers/app/views/Layout.scala.html:9:16: Unused import[0m
+[0m[[0m[33mwarn[0m] [0m[0m@import config.AppConfig[0m
+[0m[[0m[33mwarn[0m] [0m[0m               ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/laura/Documents/FullStackAcademy/code-breakers/app/views/LoginPage.scala.html:1:1: Unused import[0m
+[0m[[0m[33mwarn[0m] [0m[0m@*[0m
+[0m[[0m[33mwarn[0m] [0m[0m^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/laura/Documents/FullStackAcademy/code-breakers/app/views/RegisterPage.scala.html:1:1: Unused import[0m
+[0m[[0m[33mwarn[0m] [0m[0m@*[0m
+[0m[[0m[33mwarn[0m] [0m[0m^[0m
+[0m[[0m[33mwarn[0m] [0m[0m34 warnings found[0m

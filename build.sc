@@ -1,7 +1,7 @@
 import mill._
 import $ivy.`com.lihaoyi::mill-contrib-playlib:`,  mill.playlib._
 
-object codebreakers extends PlayModule with SingleModule {
+object hmrctest extends PlayModule with SingleModule {
 
   def scalaVersion = "2.13.10"
   def playVersion = "2.8.18"

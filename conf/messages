@@ -1,6 +1,5 @@
 # https://www.playframework.com/documentation/latest/ScalaI18N
-
-service.name = Any tax service
+service.name =
 
 site.back = Back
 site.remove = Remove
