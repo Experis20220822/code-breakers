@@ -1,24 +1,33 @@
+/*
+ * Copyright 2022 HM Revenue & Customs
+ *
+ */
+
 package controllers
 
-import javax.inject._
-import play.api._
-import play.api.mvc._
+import play.api.data.Form
+import play.api.data.Forms.{mapping, text}
 
-/**
- * This controller creates an `Action` to handle HTTP requests to the
- * application's home page.
- */
-@Singleton
-class HomeController @Inject()(val controllerComponents: ControllerComponents) extends BaseController {
+import javax.inject.{Inject, Singleton}
+import play.api.i18n.{I18nSupport, Lang}
+import play.api.mvc.{Action, AnyContent, MessagesControllerComponents, Request}
+import play.filters.csrf.CSRF
+import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendController
+import views.html.index
+import views.html.text_input
 
-  /**
-   * Create an Action to render an HTML page.
-   *
-   * The configuration in the `routes` file means that this method
-   * will be called when the application receives a `GET` request with
-   * a path of `/`.
-   */
-  def index() = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.index())
+import scala.concurrent.{ExecutionContext, Future}
+
+
+@Singleton class HomeController @Inject()(val mcc: MessagesControllerComponents, view: index, textInputView: text_input)(implicit val executionContext: ExecutionContext) extends FrontendController(mcc) with I18nSupport {
+
+  case class Data(val field: String) {}
+
+  val form: Form[Data] = Form[Data](
+    mapping("field" -> text)(Data.apply)(Data.unapply)
+  )
+
+  def index(): Action[AnyContent] = Action { implicit request =>
+    Ok(view("Home", "Heading", "SomeText"))
   }
 }
