@@ -10,6 +10,6 @@ GET     /                           controllers.HomeController.index()
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
 
 # route for the hmrc-frontend static assets
-->         /hmrc-frontend                      hmrcfrontend.Routes
+#->         /hmrc-frontend                      hmrcfrontend.Routes
 
 
