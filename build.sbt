@@ -4,7 +4,7 @@ import scoverage.ScoverageKeys
 import uk.gov.hmrc.DefaultBuildSettings
 import uk.gov.hmrc.versioning.SbtGitVersioning.autoImport.majorVersion
 
-lazy val appName: String = "heatwave"
+lazy val appName: String = "code-breakers"
 val silencerVersion = "1.6.0"
 
 addCommandAlias("fmt", "scalafmt;scalafmtSbt;test:scalafmt;it:scalafmt")
@@ -106,11 +106,11 @@ lazy val itSettings = Defaults.itSettings ++ Seq(
 
 libraryDependencies ++= AppDependencies()
 
-name := """heatwave"""
+name := """code-breakers"""
 organization := "com.xyzcorp"
 
 version := sys.env.getOrElse("BUILD_ID", "0.1")
-
+val testContainersScalaVersion = "0.40.11"
 import com.typesafe.sbt.packager.docker.DockerChmodType
 
 dockerChmodType := DockerChmodType.UserGroupWriteExecute
@@ -119,7 +119,7 @@ dockerExposedPorts ++= Seq(9000, 9001)
 
 dockerBaseImage := "eclipse-temurin:11"
 
-Docker/packageName := sys.env.getOrElse("JOB_NAME", "heatwave")
+Docker/packageName := sys.env.getOrElse("JOB_NAME", "code-breakers")
 
 Universal/javaOptions ++= Seq(
   // JVM memory tuning

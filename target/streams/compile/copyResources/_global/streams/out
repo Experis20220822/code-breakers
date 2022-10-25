@@ -1,0 +1,7 @@
+[0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/laura/Documents/FullStackAcademy/code-breakers/conf/application.conf,/home/laura/Documents/FullStackAcademy/code-breakers/target/scala-2.12/classes/application.conf)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/laura/Documents/FullStackAcademy/code-breakers/conf/production.conf,/home/laura/Documents/FullStackAcademy/code-breakers/target/scala-2.12/classes/production.conf)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/laura/Documents/FullStackAcademy/code-breakers/conf/logback.xml,/home/laura/Documents/FullStackAcademy/code-breakers/target/scala-2.12/classes/logback.xml)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/laura/Documents/FullStackAcademy/code-breakers/conf/messages,/home/laura/Documents/FullStackAcademy/code-breakers/target/scala-2.12/classes/messages)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/laura/Documents/FullStackAcademy/code-breakers/conf/production-logback.xml,/home/laura/Documents/FullStackAcademy/code-breakers/target/scala-2.12/classes/production-logback.xml)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/laura/Documents/FullStackAcademy/code-breakers/conf/routes,/home/laura/Documents/FullStackAcademy/code-breakers/target/scala-2.12/classes/routes)[0m
