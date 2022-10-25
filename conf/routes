@@ -5,9 +5,13 @@
 
 # An example controller showing a sample home page
 GET     /                           controllers.HomeController.index()
+GET     /login                      controllers.LoginController.index()
+GET     /create-an-account          controllers.RegisterController.index()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+GET     /text-input                 controllers.HomeController.textInput
 
 # route for the hmrc-frontend static assets
 ->         /hmrc-frontend                      hmrcfrontend.Routes
