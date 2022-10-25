@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ScalaCompilerConfiguration">
     <profile name="sbt 1" modules="code-breakers_2803" />
-    <profile name="sbt 3" modules="code-breakers,heatwave">
+    <profile name="sbt 2" modules="code-breakers">
+      <option name="deprecationWarnings" value="true" />
+      <option name="uncheckedWarnings" value="true" />
+      <parameters>
+        <parameter value="-encoding" />
+        <parameter value="utf8" />
+      </parameters>
+    </profile>
+    <profile name="sbt 3" modules="heatwave">
       <option name="deprecationWarnings" value="true" />
       <option name="uncheckedWarnings" value="true" />
       <option name="featureWarnings" value="true" />
