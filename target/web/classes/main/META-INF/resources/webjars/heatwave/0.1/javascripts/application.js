@@ -1,2 +1,0 @@
-
-/** javascripts/app.js **/

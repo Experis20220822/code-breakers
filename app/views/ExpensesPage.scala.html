@@ -1,0 +1,45 @@
+@*
+ * Copyright 2022 HM Revenue & Customs
+ *
+ *@
+
+@import uk.gov.hmrc.govukfrontend.views.Aliases.Button
+
+@this(govukButton: GovukButton, govukInput: GovukInput, govukBackLink: GovukBackLink)
+@govukBackLink(BackLink(href = routes.HomeController.index().url))
+
+<h1 class="govuk-heading-xl">Expenses</h1>
+// TODO - sort styling for take home pay amount
+<h3>Take-home pay</h3>
+<h2>[Take-home pay amount placeholder]</h2>
+<div class="govuk-inset-text">
+  Enter a new expense.
+</div>
+
+// TODO - sort date picker
+<div class="govuk-form-group">
+  <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="event-name">
+    Date
+  </label>
+  </h1>
+  <input class="govuk-input" id="event-name" name="event-name" type="text">
+</div>
+
+<div class="govuk-form-group">
+    <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="event-name">
+        Amount
+    </label>
+    </h1>
+    <input class="govuk-input" id="event-name" name="event-name" type="text">
+</div>
+
+// TODO - sort date picker
+<div class="govuk-form-group">
+    <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="event-name">
+        Category
+    </label>
+    </h1>
+    <input class="govuk-input" id="event-name" name="event-name" type="text">
+</div>
+
+@govukButton(Button(href = Some("#"), content = HtmlContent("Add Expense")))
