@@ -1,0 +1,51 @@
+@*
+ * Copyright 2022 HM Revenue & Customs
+ *
+ *@
+
+@import uk.gov.hmrc.govukfrontend.views.Aliases.Button
+
+@this(govukButton: GovukButton, govukInput: GovukInput, govukBackLink: GovukBackLink)
+@govukBackLink(BackLink(href = routes.CalculatorController.index().url))
+
+<h1 class="govuk-heading-xl">Calculator</h1>
+<div class="govuk-inset-text">
+          Please Enter your yearly salary Gross.
+</div>
+
+<div class="govuk-form-group">
+    <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="salary">
+        Salary Gross
+    </label>
+    </h1>
+    <input class="govuk-input" id="salary" name="salary" type="number">
+</div>
+
+<div class="govuk-form-group">
+    <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="taxCode">
+        TaxCode
+    </label>
+    </h1>
+    <select class="govuk-input" id="taxCode" name="taxCode" type="text">Chose Letter
+        <option value="standart">L</option>
+        <option value="under25">M</option>
+        <option value="s">N</option>
+    </select>
+    <br>
+    <a href="https://www.gov.uk/tax-codes/what-your-tax-code-means">Some more explanation on Tax codes</a>
+</div>
+<div class="govuk-form-group">
+    <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="pensionCont">
+        Pension Contribution
+    </label>
+    </h1>
+    <input class="govuk-input" id="pensionCont" name="pensionCont" type="number">
+</div>
+<div class="govuk-form-group">
+    <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="studentLoan">
+        Student Loan Payments
+    </label>
+    </h1>
+    <input class="govuk-input" id="studentLoan" name="studentLoan" type="number">
+</div>
+@govukButton(Button(href = Some("/result"), content = HtmlContent("Calculate")))

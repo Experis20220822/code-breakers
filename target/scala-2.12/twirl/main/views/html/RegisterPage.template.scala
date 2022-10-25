@@ -91,8 +91,8 @@ Seq[Any](format.raw/*10.1*/("""<div class="govuk-width-container">
               /*
                   -- GENERATED --
                   SOURCE: app/views/RegisterPage.scala.html
-                  HASH: fa220b48f74fe2c25f0aa8422f4492b1ebbb2c5d
-                  MATRIX: 768->51|877->111|1357->219
+                  HASH: e20097cdb9498aaa2e28bfd7a312d11175ca5f80
+                  MATRIX: 768->56|877->118|1357->228
                   LINES: 26->6|29->8|37->10
                   -- GENERATED --
               */

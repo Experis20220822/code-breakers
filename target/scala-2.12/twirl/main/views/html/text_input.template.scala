@@ -40,7 +40,8 @@ class text_input @javax.inject.Inject() /*11.6*/(layout: Layout, content: TextIn
 /*15.2*/import uk.gov.hmrc.play._
 
 
-Seq[Any](format.raw/*14.1*/("""
+Seq[Any](format.raw/*13.105*/("""
+
 """),format.raw/*16.1*/("""
 """),_display_(/*17.2*/layout(pageTitle = pageTitle, isWelshTranslationAvailable = false)/*17.68*/ {_display_(Seq[Any](format.raw/*17.70*/("""
     """),_display_(/*18.6*/content()),format.raw/*18.15*/("""
@@ -65,9 +66,9 @@ Seq[Any](format.raw/*14.1*/("""
               /*
                   -- GENERATED --
                   SOURCE: app/views/text_input.scala.html
-                  HASH: acfea218a38605a3c889524f5108a327f4189c0e
-                  MATRIX: 768->51|832->109|906->177|964->229|1053->270|1449->316|1626->422|1681->420|1709->448|1737->450|1812->516|1852->518|1884->524|1914->533
-                  LINES: 26->6|27->7|28->8|29->9|32->11|37->13|40->15|43->14|44->16|45->17|45->17|45->17|46->18|46->18
+                  HASH: 36eebdc0734c54d0eea593914dbfb00368bac456
+                  MATRIX: 768->56|832->115|906->184|964->237|1053->280|1451->328|1628->436|1685->431|1716->463|1745->466|1820->532|1860->534|1893->541|1923->550
+                  LINES: 26->6|27->7|28->8|29->9|32->11|37->13|40->15|43->13|45->16|46->17|46->17|46->17|47->18|47->18
                   -- GENERATED --
               */
           

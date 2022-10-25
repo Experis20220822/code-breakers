@@ -8,11 +8,14 @@ import config.AppConfig
 import controllers.HomeController
 import org.mongodb.scala.{MongoClient, MongoDatabase}
 import play.api.Configuration
+import services.{AsyncCalculatorService, CalculatorData}
 import views.html.index
-
+import com.google.inject._
 import java.lang.annotation.Target
 
 class Module extends AbstractModule {
+
+
   override def configure(): Unit = {
     @Provides
     def databaseProvider(configuration: Configuration): MongoDatabase = {
@@ -26,5 +29,9 @@ class Module extends AbstractModule {
       )
       mongoClient.getDatabase(database)
     }
+
+    bind(classOf[AsyncCalculatorService]).to(classOf[CalculatorData]).in(classOf[javax.inject.Singleton]);
   }
+
+
 }

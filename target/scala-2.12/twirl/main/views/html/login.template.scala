@@ -40,7 +40,8 @@ class login @javax.inject.Inject() /*11.6*/(layout: Layout, content: LoginPage) 
 /*15.2*/import uk.gov.hmrc.play._
 
 
-Seq[Any](format.raw/*14.1*/("""
+Seq[Any](format.raw/*13.105*/("""
+
 """),format.raw/*16.1*/("""
 """),_display_(/*17.2*/layout(pageTitle = pageTitle, isWelshTranslationAvailable = true)/*17.67*/ {_display_(Seq[Any](format.raw/*17.69*/("""
  """),_display_(/*18.3*/content()),format.raw/*18.12*/("""
@@ -65,9 +66,9 @@ Seq[Any](format.raw/*14.1*/("""
               /*
                   -- GENERATED --
                   SOURCE: app/views/login.scala.html
-                  HASH: 9965f0ec7b3c4144b71fbcfb59c8e58ed3aaf68a
-                  MATRIX: 768->51|832->109|906->177|964->229|1041->263|1430->302|1607->408|1662->406|1690->434|1718->436|1792->501|1832->503|1861->506|1891->515
-                  LINES: 26->6|27->7|28->8|29->9|32->11|37->13|40->15|43->14|44->16|45->17|45->17|45->17|46->18|46->18
+                  HASH: f8dd6f1cb978487a8a95e2481bdf05a693d8a700
+                  MATRIX: 768->56|832->115|906->184|964->237|1041->273|1432->314|1609->422|1666->417|1697->449|1726->452|1800->517|1840->519|1870->523|1900->532
+                  LINES: 26->6|27->7|28->8|29->9|32->11|37->13|40->15|43->13|45->16|46->17|46->17|46->17|47->18|47->18
                   -- GENERATED --
               */
           

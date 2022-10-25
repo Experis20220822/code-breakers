@@ -19,6 +19,7 @@ import views.html.text_input
 import scala.concurrent.{ExecutionContext, Future}
 
 
+
 @Singleton class RegisterController @Inject()(val mcc: MessagesControllerComponents, view: register, textInputView: text_input)(implicit val executionContext: ExecutionContext) extends FrontendController(mcc) with I18nSupport {
 
   case class Data(val field: String) {}

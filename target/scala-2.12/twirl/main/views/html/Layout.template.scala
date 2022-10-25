@@ -40,7 +40,8 @@ class Layout @javax.inject.Inject() /*11.6*/(hmrcLayout: HmrcLayout, govukBackLi
       {
 
 
-Seq[Any](format.raw/*15.1*/("""
+Seq[Any](format.raw/*14.116*/("""
+
     """),_display_(/*16.6*/hmrcLayout(
         pageTitle = Some(pageTitle),
         displayHmrcBanner = true,
@@ -68,9 +69,9 @@ Seq[Any](format.raw/*15.1*/("""
               /*
                   -- GENERATED --
                   SOURCE: app/views/Layout.scala.html
-                  HASH: 46e9a238d7297b89ecf83f7b7ad2f75decc65244
-                  MATRIX: 768->51|809->86|878->149|919->184|993->214|1399->271|1629->407|1661->413|1853->597|1888->611
-                  LINES: 26->6|27->7|28->8|29->9|32->11|37->13|43->15|44->16|49->21|49->21
+                  HASH: 4392be0f0079d6b81b2d8926f898d4723149afdc
+                  MATRIX: 768->56|809->92|878->156|919->192|993->224|1401->283|1634->419|1669->428|1866->617|1901->631
+                  LINES: 26->6|27->7|28->8|29->9|32->11|37->13|43->14|45->16|50->21|50->21
                   -- GENERATED --
               */
           

@@ -5,10 +5,31 @@
     <profile name="sbt 2" modules="code-breakers">
       <option name="deprecationWarnings" value="true" />
       <option name="uncheckedWarnings" value="true" />
+      <option name="featureWarnings" value="true" />
       <parameters>
+        <parameter value="-Xlint" />
+        <parameter value="-target:jvm-1.8" />
+        <parameter value="-encoding" />
+        <parameter value="UTF-8" />
+        <parameter value="-Ywarn-macros:after" />
+        <parameter value="-Xmax-classfile-name" />
+        <parameter value="100" />
         <parameter value="-encoding" />
         <parameter value="utf8" />
+        <parameter value="-Xlint" />
+        <parameter value="-target:jvm-1.8" />
+        <parameter value="-encoding" />
+        <parameter value="UTF-8" />
+        <parameter value="-Ywarn-macros:after" />
+        <parameter value="-Xmax-classfile-name" />
+        <parameter value="100" />
+        <parameter value="-P:silencer:pathFilters=target/.*" />
+        <parameter value="-P:silencer:sourceRoots=C:\Users\Owner\Desktop\LastWeek\test\code-breakers" />
+        <parameter value="-P:silencer:globalFilters=possible missing interpolator: detected interpolated identifier `\$date`" />
       </parameters>
+      <plugins>
+        <plugin path="C:\Users\Owner\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\com\github\ghik\silencer-plugin_2.12.10\1.6.0\silencer-plugin_2.12.10-1.6.0.jar" />
+      </plugins>
     </profile>
     <profile name="sbt 3" modules="heatwave">
       <option name="deprecationWarnings" value="true" />
