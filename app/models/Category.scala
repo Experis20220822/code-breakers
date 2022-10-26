@@ -26,3 +26,7 @@ case object Water extends Category {
 case object Socialising extends Category {
   override def toString: String = "Socialising"
 }
+
+case object Other extends Category {
+  override def toString: String = "Other"
+}
