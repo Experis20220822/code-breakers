@@ -1,10 +1,9 @@
 [0m[[0m[0mdebug[0m] [0m[0mAbout to create/update header for C:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\views\calTestForm.scala.html[0m
-[0m[[0m[0mdebug[0m] [0m[0mAbout to create/update header for C:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\views\calculator\show.scala.html[0m
+[0m[[0m[0mdebug[0m] [0m[0mAbout to create/update header for C:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\views\display.scala.html[0m
 [0m[[0m[0mdebug[0m] [0m[0mAbout to create/update header for C:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\views\RegisterPage.scala.html[0m
 [0m[[0m[0mdebug[0m] [0m[0mAbout to create/update header for C:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\views\Layout.scala.html[0m
 [0m[[0m[0mdebug[0m] [0m[0mAbout to create/update header for C:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\views\text_input.scala.html[0m
 [0m[[0m[0mdebug[0m] [0m[0mAbout to create/update header for C:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\views\index.scala.html[0m
-[0m[[0m[0mdebug[0m] [0m[0mAbout to create/update header for C:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\views\show.scala.html[0m
 [0m[[0m[0mdebug[0m] [0m[0mAbout to create/update header for C:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\views\register.scala.html[0m
 [0m[[0m[0mdebug[0m] [0m[0mAbout to create/update header for C:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\views\expenseForm.scala.html[0m
 [0m[[0m[0mdebug[0m] [0m[0mAbout to create/update header for C:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\views\calculator\CalculatorPage.scala.html[0m
@@ -29,7 +28,6 @@
 [0m[[0m[0mdebug[0m] [0m[0mAbout to create/update header for C:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\forms\mappings\LocalDateFormatter.scala[0m
 [0m[[0m[0mdebug[0m] [0m[0mAbout to create/update header for C:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\models\Category.scala[0m
 [0m[[0m[0mdebug[0m] [0m[0mAbout to create/update header for C:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\models\UserAnswers.scala[0m
-[0m[[0m[0mdebug[0m] [0m[0mAbout to create/update header for C:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\controllers\ExpensesController.scala[0m
 [0m[[0m[0mdebug[0m] [0m[0mAbout to create/update header for C:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\viewmodels\govuk\RadiosFluency.scala[0m
 [0m[[0m[0mdebug[0m] [0m[0mAbout to create/update header for C:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\viewmodels\govuk\package.scala[0m
 [0m[[0m[0mdebug[0m] [0m[0mAbout to create/update header for C:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\viewmodels\govuk\SummaryListFluency.scala[0m
@@ -41,9 +39,11 @@
 [0m[[0m[0mdebug[0m] [0m[0mAbout to create/update header for C:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\forms\mappings\Constraints.scala[0m
 [0m[[0m[0mdebug[0m] [0m[0mAbout to create/update header for C:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\viewmodels\ErrorMessageAwareness.scala[0m
 [0m[[0m[0mdebug[0m] [0m[0mAbout to create/update header for C:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\viewmodels\govuk\FieldsetFluency.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0mAbout to create/update header for C:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\services\MongoExpenseService.scala[0m
 [0m[[0m[0mdebug[0m] [0m[0mAbout to create/update header for C:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\viewmodels\InputWidth.scala[0m
 [0m[[0m[0mdebug[0m] [0m[0mAbout to create/update header for C:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\services\StandardCalculatorService.scala[0m
 [0m[[0m[0mdebug[0m] [0m[0mAbout to create/update header for C:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\viewmodels\govuk\CheckboxFluency.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0mAbout to create/update header for C:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\Module.scala[0m
 [0m[[0m[0mdebug[0m] [0m[0mAbout to create/update header for C:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\viewmodels\govuk\ErrorSummaryFluency.scala[0m
 [0m[[0m[0mdebug[0m] [0m[0mAbout to create/update header for C:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\services\MongoUserServices.scala[0m
 [0m[[0m[0mdebug[0m] [0m[0mAbout to create/update header for C:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\models\User.scala[0m

@@ -53,11 +53,11 @@ class CalculatorController @Inject()
   }
 
 
-  def calculate(): Action[AnyContent] = Action.async { implicit request =>
+  def calculate(): Action[AnyContent] = Action { implicit request =>
     calculatorForm.bindFromRequest.fold(
       formWithErrors => {
         println("Something gone wrong" + formWithErrors)
-        Future(BadRequest(view("Lest ", "Test ", "This ", formWithErrors)))
+        BadRequest(view("Lest ", "Test ", "This ", formWithErrors))
       },
       calculatorData => {
 
@@ -65,7 +65,7 @@ class CalculatorController @Inject()
         val calculator = Calculator(calculatorData.salary, calculatorData.taxCode, calculatorData.pensionCount, calculatorData.stdLoan)
         println(calculator)
         val calcResult = calculatorResult.calculateSalary(calculator)
-        Future(Redirect(routes.CalculatorController.show(calcResult)))
+        Redirect(routes.CalculatorController.show(calcResult))
       }
     )
 
