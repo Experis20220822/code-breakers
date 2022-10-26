@@ -1,5 +1,5 @@
 # https://www.playframework.com/documentation/latest/ScalaI18N
-service.name = Any tax service
+service.name = Budgeting Tool
 
 site.back = Back
 site.remove = Remove
