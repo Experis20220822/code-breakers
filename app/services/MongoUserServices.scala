@@ -6,16 +6,17 @@
 package services
 
 import models._
-import org.mongodb.scala.model.Filters.equal
-import org.mongodb.scala.{Document, MongoDatabase}
+import org.mongodb.scala.{Document, MongoCollection}
+import uk.gov.hmrc.mongo.MongoComponent
 
-import javax.inject.Inject
+import javax.inject.{Inject, Singleton}
 import scala.concurrent.Future
 import scala.util.Try
 
-class MongoUserServices @Inject()(salaryCalcDatabase: MongoDatabase) extends AsyncUserService {
+@Singleton
+class MongoUserServices @Inject()(mongoDatabase: MongoComponent) extends AsyncUserService {
 
-  val userCollection = salaryCalcDatabase.getCollection("users")
+  val userCollection: MongoCollection[Document] = mongoDatabase.database.getCollection("users")
 
   override def create(user: User): Unit = {
     val document: Document = userToDocument(user)
@@ -26,7 +27,6 @@ class MongoUserServices @Inject()(salaryCalcDatabase: MongoDatabase) extends Asy
         t => t.printStackTrace(),
         () => "Insert Complete"
       )
-
   }
 
   private def userToDocument(user: User): Document = {
