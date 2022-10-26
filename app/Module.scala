@@ -8,7 +8,7 @@ import config.AppConfig
 import controllers.HomeController
 import org.mongodb.scala.{MongoClient, MongoDatabase}
 import play.api.Configuration
-import services.{AsyncCalculatorService, CalculatorData}
+import services.{AsyncCalculatorService, StandardCalculatorService}
 import views.html.index
 import com.google.inject._
 import java.lang.annotation.Target
@@ -30,7 +30,7 @@ class Module extends AbstractModule {
       mongoClient.getDatabase(database)
     }
 
-    bind(classOf[AsyncCalculatorService]).to(classOf[CalculatorData]).in(classOf[javax.inject.Singleton]);
+    bind(classOf[AsyncCalculatorService]).to(classOf[StandardCalculatorService]).in(classOf[javax.inject.Singleton]);
   }
 
 

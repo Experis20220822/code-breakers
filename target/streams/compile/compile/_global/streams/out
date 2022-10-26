@@ -1,32 +1,22 @@
-[0m[[0m[33mwarn[0m] [0m[0mC:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\controllers\CalculatorController.scala:8:26: Unused import[0m
+[0m[[0m[33mwarn[0m] [0m[0mC:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\controllers\CalculatorController.scala:9:26: Unused import[0m
 [0m[[0m[33mwarn[0m] [0m[0mimport org.mongodb.scala.MongoDatabase[0m
 [0m[[0m[33mwarn[0m] [0m[0m                         ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mC:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\controllers\CalculatorController.scala:10:50: Unused import[0m
-[0m[[0m[33mwarn[0m] [0m[0mimport play.api.data.Forms.{longNumber, mapping, number, text}[0m
-[0m[[0m[33mwarn[0m] [0m[0m                                                 ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mC:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\controllers\CalculatorController.scala:10:58: Unused import[0m
-[0m[[0m[33mwarn[0m] [0m[0mimport play.api.data.Forms.{longNumber, mapping, number, text}[0m
-[0m[[0m[33mwarn[0m] [0m[0m                                                         ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mC:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\controllers\CalculatorController.scala:16:20: Unused import[0m
-[0m[[0m[33mwarn[0m] [0m[0mimport views.html.{register, text_input}[0m
-[0m[[0m[33mwarn[0m] [0m[0m                   ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mC:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\controllers\CalculatorController.scala:48:53: parameter value request in value $anonfun is never used[0m
-[0m[[0m[33mwarn[0m] [0m[0m def show(): Action[AnyContent] = Action { implicit request =>[0m
-[0m[[0m[33mwarn[0m] [0m[0m                                                    ^[0m
-[0m[[0m[33mwarn[0m] [0m[0m5 warnings found[0m
-[0m[[0m[33mwarn[0m] [0m[0mC:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\controllers\CalculatorController.scala:8:26: Unused import[0m
-[0m[[0m[33mwarn[0m] [0m[0mimport org.mongodb.scala.MongoDatabase[0m
+[0m[[0m[33mwarn[0m] [0m[0mC:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\controllers\CalculatorController.scala:11:29: Unused import[0m
+[0m[[0m[33mwarn[0m] [0m[0mimport play.api.data.Forms.{char, longNumber, mapping, number, text}[0m
+[0m[[0m[33mwarn[0m] [0m[0m                            ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mC:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\controllers\CalculatorController.scala:11:56: Unused import[0m
+[0m[[0m[33mwarn[0m] [0m[0mimport play.api.data.Forms.{char, longNumber, mapping, number, text}[0m
+[0m[[0m[33mwarn[0m] [0m[0m                                                       ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mC:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\controllers\CalculatorController.scala:12:32: Unused import[0m
+[0m[[0m[33mwarn[0m] [0m[0mimport play.api.http.Writeable.wByteArray[0m
+[0m[[0m[33mwarn[0m] [0m[0m                               ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mC:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\controllers\CalculatorController.scala:14:28: Unused import[0m
+[0m[[0m[33mwarn[0m] [0m[0mimport play.api.libs.Jsonp.contentTypeOf_Jsonp[0m
+[0m[[0m[33mwarn[0m] [0m[0m                           ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mC:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\controllers\CalculatorController.scala:18:26: Unused import[0m
+[0m[[0m[33mwarn[0m] [0m[0mimport views.html.helper.form[0m
 [0m[[0m[33mwarn[0m] [0m[0m                         ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mC:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\controllers\CalculatorController.scala:10:50: Unused import[0m
-[0m[[0m[33mwarn[0m] [0m[0mimport play.api.data.Forms.{longNumber, mapping, number, text}[0m
-[0m[[0m[33mwarn[0m] [0m[0m                                                 ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mC:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\controllers\CalculatorController.scala:10:58: Unused import[0m
-[0m[[0m[33mwarn[0m] [0m[0mimport play.api.data.Forms.{longNumber, mapping, number, text}[0m
-[0m[[0m[33mwarn[0m] [0m[0m                                                         ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mC:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\controllers\CalculatorController.scala:16:20: Unused import[0m
-[0m[[0m[33mwarn[0m] [0m[0mimport views.html.{register, text_input}[0m
-[0m[[0m[33mwarn[0m] [0m[0m                   ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mC:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\controllers\CalculatorController.scala:48:53: parameter value request in value $anonfun is never used[0m
-[0m[[0m[33mwarn[0m] [0m[0m def show(): Action[AnyContent] = Action { implicit request =>[0m
-[0m[[0m[33mwarn[0m] [0m[0m                                                    ^[0m
-[0m[[0m[33mwarn[0m] [0m[0m5 warnings found[0m
+[0m[[0m[33mwarn[0m] [0m[0mC:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\controllers\CalculatorController.scala:73:68: parameter value request in value $anonfun is never used[0m
+[0m[[0m[33mwarn[0m] [0m[0m  def show(result: Double): Action[AnyContent] = Action { implicit request =>[0m
+[0m[[0m[33mwarn[0m] [0m[0m                                                                   ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m7 warnings found[0m

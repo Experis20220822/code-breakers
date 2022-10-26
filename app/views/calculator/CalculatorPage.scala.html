@@ -5,7 +5,8 @@
 
 @import uk.gov.hmrc.govukfrontend.views.Aliases.Button
 
-@this(govukButton: GovukButton, govukInput: GovukInput, govukBackLink: GovukBackLink)
+@this(govukButton: GovukButton,  formHelper: FormWithCSRF, govukInput: GovukInput, govukBackLink: GovukBackLink)
+@(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages)
 @govukBackLink(BackLink(href = routes.CalculatorController.index().url))
 
 <h1 class="govuk-heading-xl">Calculator</h1>
@@ -13,6 +14,7 @@
           Please Enter your yearly salary Gross.
 </div>
 
+@formHelper(action = routes.CalculatorController.calculate(), 'autoComplete -> "off") {
 <div class="govuk-form-group">
     <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="salary">
         Salary Gross
@@ -27,25 +29,26 @@
     </label>
     </h1>
     <select class="govuk-input" id="taxCode" name="taxCode" type="text">Chose Letter
-        <option value="standart">L</option>
-        <option value="under25">M</option>
-        <option value="s">N</option>
+        <option value="L">L</option>
+        <option value="M">M</option>
+        <option value="N">N</option>
     </select>
     <br>
     <a href="https://www.gov.uk/tax-codes/what-your-tax-code-means">Some more explanation on Tax codes</a>
 </div>
 <div class="govuk-form-group">
-    <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="pensionCont">
+    <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="pensionCount">
         Pension Contribution
     </label>
     </h1>
-    <input class="govuk-input" id="pensionCont" name="pensionCont" type="number">
+    <input class="govuk-input" id="pensionCount" name="pensionCount" type="number">
 </div>
 <div class="govuk-form-group">
-    <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="studentLoan">
+    <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="stdLoan">
         Student Loan Payments
     </label>
     </h1>
-    <input class="govuk-input" id="studentLoan" name="studentLoan" type="number">
+    <input class="govuk-input" id="stdLoan" name="stdLoan" type="number">
 </div>
-@govukButton(Button(href = Some("/result"), content = HtmlContent("Calculate")))
+    @govukButton(Button(inputType = Some("submit")  , content = HtmlContent("Calculate")))
+}

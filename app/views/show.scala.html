@@ -1,0 +1,21 @@
+@*
+ * Copyright 2022 HM Revenue & Customs
+ *
+ *@
+
+@import uk.gov.hmrc.govukfrontend.views.Aliases.Button
+
+
+@this(govukButton: GovukButton, govukInput: GovukInput, govukBackLink: GovukBackLink)
+
+@govukBackLink(BackLink(href = routes.CalculatorController.index().url))
+
+
+<h1 class="govuk-heading-xl">Result</h1>
+<div class="govuk-inset-text">
+          <h2>Your Salary after Tax is : </h2>
+
+
+</div>
+
+

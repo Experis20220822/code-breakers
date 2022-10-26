@@ -8,13 +8,12 @@
 @import uk.gov.hmrc.govukfrontend.views.Implicits._
 @import views.html.calculator.CalculatorPage
 
+
 @this(layout: Layout, content: CalculatorPage)
-
-
-@(pageTitle: String, heading: String, message: String)(implicit request: Request[_], messages: Messages)
+@(pageTitle: String, heading: String, message: String, form: Form[CalculatorFormData])(implicit request: Request[_], messages: Messages)
 
 @import uk.gov.hmrc.play._
 
 @layout(pageTitle = pageTitle, isWelshTranslationAvailable = true) {
-    @content()
+    @content(form, NormalMode)
 }
