@@ -1,2 +1,54 @@
-[0m[[0m[0mdebug[0m] [0m[0mCreated transactional ClassFileManager with tempDir = C:\Users\Owner\Desktop\LastWeek\test\code-breakers\target\scala-2.12\classes.bak[0m
-[0m[[0m[0mdebug[0m] [0m[0mRemoving the temporary directory used for backing up class files: C:\Users\Owner\Desktop\LastWeek\test\code-breakers\target\scala-2.12\classes.bak[0m
+[0m[[0m[0mdebug[0m] [0m[0mCreated transactional ClassFileManager with tempDir = C:\Users\leeap\code-breakers\target\scala-2.12\classes.bak[0m
+[0m[[0m[0mdebug[0m] [0m[0mAbout to delete class files:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ReverseCalculatorController.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ReverseHomeController.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	RegisterController.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ReverseExpenseController.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ReverseRegisterController.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ReverseLoginController.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ReverseRegisterController.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	RegisterData.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ReverseAssets.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	RegisterData$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ReverseHomeController.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ReverseCalculatorController.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Routes$$anonfun$routes$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ReverseAssets.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Routes.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ReverseLoginController.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ReverseExpenseController.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mWe backup class files:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ReverseCalculatorController.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ReverseHomeController.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	RegisterController.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ReverseExpenseController.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Module.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ReverseRegisterController.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ReverseLoginController.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ReverseRegisterController.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	RegisterData.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ReverseAssets.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	RegisterData$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ReverseHomeController.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ReverseCalculatorController.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Routes$$anonfun$routes$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ReverseAssets.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Routes.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ReverseLoginController.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ReverseExpenseController.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mRolling back changes to class files.[0m
+[0m[[0m[0mdebug[0m] [0m[0mRemoving generated classes:[0m
+[0m[[0m[0mdebug[0m] [0m[0mRestoring class files: [0m
+[0m[[0m[0mdebug[0m] [0m[0m	ReverseRegisterController.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Routes.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ReverseLoginController.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ReverseHomeController.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ReverseExpenseController.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ReverseAssets.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	RegisterData$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Routes$$anonfun$routes$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	RegisterController.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ReverseCalculatorController.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	RegisterData.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mRemoving the temporary directory used for backing up class files: C:\Users\leeap\code-breakers\target\scala-2.12\classes.bak[0m

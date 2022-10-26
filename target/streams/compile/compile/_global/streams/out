@@ -1,22 +1,19 @@
-[0m[[0m[33mwarn[0m] [0m[0mC:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\controllers\CalculatorController.scala:9:26: Unused import[0m
-[0m[[0m[33mwarn[0m] [0m[0mimport org.mongodb.scala.MongoDatabase[0m
-[0m[[0m[33mwarn[0m] [0m[0m                         ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mC:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\controllers\CalculatorController.scala:11:29: Unused import[0m
-[0m[[0m[33mwarn[0m] [0m[0mimport play.api.data.Forms.{char, longNumber, mapping, number, text}[0m
-[0m[[0m[33mwarn[0m] [0m[0m                            ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mC:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\controllers\CalculatorController.scala:11:56: Unused import[0m
-[0m[[0m[33mwarn[0m] [0m[0mimport play.api.data.Forms.{char, longNumber, mapping, number, text}[0m
-[0m[[0m[33mwarn[0m] [0m[0m                                                       ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mC:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\controllers\CalculatorController.scala:12:32: Unused import[0m
-[0m[[0m[33mwarn[0m] [0m[0mimport play.api.http.Writeable.wByteArray[0m
-[0m[[0m[33mwarn[0m] [0m[0m                               ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mC:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\controllers\CalculatorController.scala:14:28: Unused import[0m
-[0m[[0m[33mwarn[0m] [0m[0mimport play.api.libs.Jsonp.contentTypeOf_Jsonp[0m
-[0m[[0m[33mwarn[0m] [0m[0m                           ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mC:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\controllers\CalculatorController.scala:18:26: Unused import[0m
-[0m[[0m[33mwarn[0m] [0m[0mimport views.html.helper.form[0m
-[0m[[0m[33mwarn[0m] [0m[0m                         ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mC:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\controllers\CalculatorController.scala:74:68: parameter value request in value $anonfun is never used[0m
-[0m[[0m[33mwarn[0m] [0m[0m  def show(result: Double): Action[AnyContent] = Action { implicit request =>[0m
-[0m[[0m[33mwarn[0m] [0m[0m                                                                   ^[0m
-[0m[[0m[33mwarn[0m] [0m[0m7 warnings found[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\leeap\code-breakers\app\Module.scala:6:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0m<<<<<<< HEAD[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\leeap\code-breakers\app\Module.scala:34:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0m=======[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\leeap\code-breakers\app\Module.scala:45:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0m<<<<<<< HEAD[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\leeap\code-breakers\app\Module.scala:46:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0m=======[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\leeap\code-breakers\app\Module.scala:47:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0m>>>>>>> f67bbaad911ef355572b98e1b49bf5e1daf3ff5c[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\leeap\code-breakers\app\Module.scala:48:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0m>>>>>>> staging_lap[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0m6 errors found[0m
