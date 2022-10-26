@@ -5,11 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8599dca1-67b8-4217-87b8-a4fc3c41db36" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules/code-breakers-build.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/code-breakers-build.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Module.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/repositories/UserRepository.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/RegisterController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/RegisterController.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/IndexPage.scala.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/IndexPage.scala.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/RegisterPage.scala.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/RegisterPage.scala.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/AsyncUserService.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/AsyncUserService.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/MongoUserServices.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/UserService.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/UserService.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/application.conf" beforeDir="false" afterPath="$PROJECT_DIR$/conf/application.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conf/routes" beforeDir="false" afterPath="$PROJECT_DIR$/conf/routes" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/application.log" afterDir="false" />
     </list>
@@ -45,10 +48,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.scala" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.scala" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />

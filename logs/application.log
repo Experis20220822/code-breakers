@@ -1,46 +1,37 @@
-2022-10-26 11:51:37 [34mINFO [0;39m [36mplay.api.http.EnabledFilters[0;39m [35m[0;39m Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+2022-10-26 16:12:04 [1;31mERROR[0;39m [36mplay.api.http.DevHttpErrorHandler[0;39m [35m[0;39m 
 
-    play.filters.csrf.CSRFFilter
-    play.filters.headers.SecurityHeadersFilter
-    play.filters.hosts.AllowedHostsFilter
-
-2022-10-26 11:51:37 [34mINFO [0;39m [36mplay.api.Play[0;39m [35m[0;39m Application started (Dev) (no global state)
-2022-10-26 11:55:59 [34mINFO [0;39m [36mplay.api.http.EnabledFilters[0;39m [35m[0;39m Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
-
-    play.filters.csrf.CSRFFilter
-    play.filters.headers.SecurityHeadersFilter
-    play.filters.hosts.AllowedHostsFilter
-
-2022-10-26 11:55:59 [34mINFO [0;39m [36mplay.api.Play[0;39m [35m[0;39m Application started (Dev) (no global state)
-2022-10-26 11:58:21 [34mINFO [0;39m [36mplay.api.http.EnabledFilters[0;39m [35m[0;39m Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
-
-    play.filters.csrf.CSRFFilter
-    play.filters.headers.SecurityHeadersFilter
-    play.filters.hosts.AllowedHostsFilter
-
-2022-10-26 11:58:21 [34mINFO [0;39m [36mplay.api.Play[0;39m [35m[0;39m Application started (Dev) (no global state)
-2022-10-26 12:05:27 [1;31mERROR[0;39m [36mplay.api.http.DevHttpErrorHandler[0;39m [35m[0;39m 
-
-! @7pdf7gmhj - Internal server error, for (GET) [/create-an-account] ->
+! @7pdge0ip5 - Internal server error, for (GET) [/] ->
  
-play.sbt.PlayExceptions$CompilationException: Compilation error[unclosed multi-line string literal]
-	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:34)
-	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:34)
-	at scala.Option.map(Option.scala:230)
-	at play.sbt.run.PlayReload$.$anonfun$taskFailureHandler$8(PlayReload.scala:131)
-	at scala.Option.map(Option.scala:230)
-	at play.sbt.run.PlayReload$.taskFailureHandler(PlayReload.scala:104)
-	at play.sbt.run.PlayReload$.compileFailure(PlayReload.scala:38)
-	at play.sbt.run.PlayReload$.$anonfun$compile$3(PlayReload.scala:156)
-	at scala.util.Either$LeftProjection.map(Either.scala:573)
-	at play.sbt.run.PlayReload$.compile(PlayReload.scala:156)
-	at play.sbt.run.PlayRun$.$anonfun$playRunTask$4(PlayRun.scala:80)
-	at play.runsupport.Reloader.$anonfun$reload$1(Reloader.scala:496)
-	at play.runsupport.Reloader$$anon$1.run(Reloader.scala:57)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at play.runsupport.Reloader$.play$runsupport$Reloader$$withReloaderContextClassLoader(Reloader.scala:63)
-	at play.runsupport.Reloader.reload(Reloader.scala:496)
-	at play.core.server.DevServerStart$$anon$1.get(DevServerStart.scala:147)
+play.api.UnexpectedException: Unexpected exception[CreationException: Unable to create injector, see the following errors:
+
+1) [Guice/MissingImplementation]: No implementation for services.AsyncUserService was bound.
+
+Requested by:
+1  : controllers.RegisterController.<init>(RegisterController.scala:30)
+      \_ for 4th parameter userService
+     at router.Routes.<init>(Routes.scala:46)
+      \_ for 5th parameter RegisterController_3
+     at RoutesProvider$.bindingsFromConfiguration(BuiltinModule.scala:139):
+Binding(class router.Routes to self)
+      \_ installed by: Modules$OverrideModule -> GuiceableModuleConversions$$anon$4
+
+Learn more:
+  https://github.com/google/guice/wiki/MISSING_IMPLEMENTATION
+
+1 error
+
+======================
+Full classname legend:
+======================
+GuiceableModuleConversions$$anon$4: "play.api.inject.guice.GuiceableModuleConversions$$anon$4"
+Modules$OverrideModule:             "com.google.inject.util.Modules$OverrideModule"
+RoutesProvider$:                    "play.api.inject.RoutesProvider$"
+========================
+End of classname legend:
+========================
+]
+	at play.core.server.DevServerStart$$anon$1.reload(DevServerStart.scala:254)
+	at play.core.server.DevServerStart$$anon$1.get(DevServerStart.scala:148)
 	at play.core.server.AkkaHttpServer.handleRequest(AkkaHttpServer.scala:308)
 	at play.core.server.AkkaHttpServer.$anonfun$createServerBinding$1(AkkaHttpServer.scala:225)
 	at akka.stream.impl.fusing.MapAsync$$anon$30.onPush(Ops.scala:1309)
@@ -65,28 +56,80 @@ play.sbt.PlayExceptions$CompilationException: Compilation error[unclosed multi-l
 	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656)
 	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594)
 	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
-2022-10-26 12:05:42 [1;31mERROR[0;39m [36mplay.api.http.DevHttpErrorHandler[0;39m [35m[0;39m 
+Caused by: com.google.inject.CreationException: Unable to create injector, see the following errors:
 
-! @7pdf7hjd7 - Internal server error, for (GET) [/create-an-account] ->
+1) [Guice/MissingImplementation]: No implementation for services.AsyncUserService was bound.
+
+Requested by:
+1  : controllers.RegisterController.<init>(RegisterController.scala:30)
+      \_ for 4th parameter userService
+     at router.Routes.<init>(Routes.scala:46)
+      \_ for 5th parameter RegisterController_3
+     at RoutesProvider$.bindingsFromConfiguration(BuiltinModule.scala:139):
+Binding(class router.Routes to self)
+      \_ installed by: Modules$OverrideModule -> GuiceableModuleConversions$$anon$4
+
+Learn more:
+  https://github.com/google/guice/wiki/MISSING_IMPLEMENTATION
+
+1 error
+
+======================
+Full classname legend:
+======================
+GuiceableModuleConversions$$anon$4: "play.api.inject.guice.GuiceableModuleConversions$$anon$4"
+Modules$OverrideModule:             "com.google.inject.util.Modules$OverrideModule"
+RoutesProvider$:                    "play.api.inject.RoutesProvider$"
+========================
+End of classname legend:
+========================
+
+	at com.google.inject.internal.Errors.throwCreationExceptionIfErrorsExist(Errors.java:576)
+	at com.google.inject.internal.InternalInjectorCreator.initializeStatically(InternalInjectorCreator.java:163)
+	at com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:110)
+	at com.google.inject.Guice.createInjector(Guice.java:87)
+	at com.google.inject.Guice.createInjector(Guice.java:78)
+	at play.api.inject.guice.GuiceBuilder.injector(GuiceInjectorBuilder.scala:200)
+	at play.api.inject.guice.GuiceApplicationBuilder.build(GuiceApplicationBuilder.scala:155)
+	at play.api.inject.guice.GuiceApplicationLoader.load(GuiceApplicationLoader.scala:21)
+	at play.core.server.DevServerStart$$anon$1.$anonfun$reload$2(DevServerStart.scala:193)
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:22)
+	at play.core.server.DevServerStart$$anon$1.reload(DevServerStart.scala:185)
+	... 25 common frames omitted
+2022-10-26 16:16:43 [1;31mERROR[0;39m [36mplay.api.http.DevHttpErrorHandler[0;39m [35m[0;39m 
+
+! @7pdgeggkj - Internal server error, for (GET) [/] ->
  
-play.sbt.PlayExceptions$CompilationException: Compilation error[unclosed multi-line string literal]
-	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:34)
-	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:34)
-	at scala.Option.map(Option.scala:230)
-	at play.sbt.run.PlayReload$.$anonfun$taskFailureHandler$8(PlayReload.scala:131)
-	at scala.Option.map(Option.scala:230)
-	at play.sbt.run.PlayReload$.taskFailureHandler(PlayReload.scala:104)
-	at play.sbt.run.PlayReload$.compileFailure(PlayReload.scala:38)
-	at play.sbt.run.PlayReload$.$anonfun$compile$3(PlayReload.scala:156)
-	at scala.util.Either$LeftProjection.map(Either.scala:573)
-	at play.sbt.run.PlayReload$.compile(PlayReload.scala:156)
-	at play.sbt.run.PlayRun$.$anonfun$playRunTask$4(PlayRun.scala:80)
-	at play.runsupport.Reloader.$anonfun$reload$1(Reloader.scala:496)
-	at play.runsupport.Reloader$$anon$1.run(Reloader.scala:57)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at play.runsupport.Reloader$.play$runsupport$Reloader$$withReloaderContextClassLoader(Reloader.scala:63)
-	at play.runsupport.Reloader.reload(Reloader.scala:496)
-	at play.core.server.DevServerStart$$anon$1.get(DevServerStart.scala:147)
+play.api.UnexpectedException: Unexpected exception[CreationException: Unable to create injector, see the following errors:
+
+1) [Guice/MissingImplementation]: No implementation for services.AsyncUserService was bound.
+
+Requested by:
+1  : controllers.RegisterController.<init>(RegisterController.scala:30)
+      \_ for 4th parameter userService
+     at router.Routes.<init>(Routes.scala:46)
+      \_ for 5th parameter RegisterController_3
+     at RoutesProvider$.bindingsFromConfiguration(BuiltinModule.scala:139):
+Binding(class router.Routes to self)
+      \_ installed by: Modules$OverrideModule -> GuiceableModuleConversions$$anon$4
+
+Learn more:
+  https://github.com/google/guice/wiki/MISSING_IMPLEMENTATION
+
+1 error
+
+======================
+Full classname legend:
+======================
+GuiceableModuleConversions$$anon$4: "play.api.inject.guice.GuiceableModuleConversions$$anon$4"
+Modules$OverrideModule:             "com.google.inject.util.Modules$OverrideModule"
+RoutesProvider$:                    "play.api.inject.RoutesProvider$"
+========================
+End of classname legend:
+========================
+]
+	at play.core.server.DevServerStart$$anon$1.reload(DevServerStart.scala:254)
+	at play.core.server.DevServerStart$$anon$1.get(DevServerStart.scala:148)
 	at play.core.server.AkkaHttpServer.handleRequest(AkkaHttpServer.scala:308)
 	at play.core.server.AkkaHttpServer.$anonfun$createServerBinding$1(AkkaHttpServer.scala:225)
 	at akka.stream.impl.fusing.MapAsync$$anon$30.onPush(Ops.scala:1309)
@@ -111,28 +154,80 @@ play.sbt.PlayExceptions$CompilationException: Compilation error[unclosed multi-l
 	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656)
 	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594)
 	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
-2022-10-26 12:05:45 [1;31mERROR[0;39m [36mplay.api.http.DevHttpErrorHandler[0;39m [35m[0;39m 
+Caused by: com.google.inject.CreationException: Unable to create injector, see the following errors:
 
-! @7pdf7hmph - Internal server error, for (GET) [/create-an-account] ->
+1) [Guice/MissingImplementation]: No implementation for services.AsyncUserService was bound.
+
+Requested by:
+1  : controllers.RegisterController.<init>(RegisterController.scala:30)
+      \_ for 4th parameter userService
+     at router.Routes.<init>(Routes.scala:46)
+      \_ for 5th parameter RegisterController_3
+     at RoutesProvider$.bindingsFromConfiguration(BuiltinModule.scala:139):
+Binding(class router.Routes to self)
+      \_ installed by: Modules$OverrideModule -> GuiceableModuleConversions$$anon$4
+
+Learn more:
+  https://github.com/google/guice/wiki/MISSING_IMPLEMENTATION
+
+1 error
+
+======================
+Full classname legend:
+======================
+GuiceableModuleConversions$$anon$4: "play.api.inject.guice.GuiceableModuleConversions$$anon$4"
+Modules$OverrideModule:             "com.google.inject.util.Modules$OverrideModule"
+RoutesProvider$:                    "play.api.inject.RoutesProvider$"
+========================
+End of classname legend:
+========================
+
+	at com.google.inject.internal.Errors.throwCreationExceptionIfErrorsExist(Errors.java:576)
+	at com.google.inject.internal.InternalInjectorCreator.initializeStatically(InternalInjectorCreator.java:163)
+	at com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:110)
+	at com.google.inject.Guice.createInjector(Guice.java:87)
+	at com.google.inject.Guice.createInjector(Guice.java:78)
+	at play.api.inject.guice.GuiceBuilder.injector(GuiceInjectorBuilder.scala:200)
+	at play.api.inject.guice.GuiceApplicationBuilder.build(GuiceApplicationBuilder.scala:155)
+	at play.api.inject.guice.GuiceApplicationLoader.load(GuiceApplicationLoader.scala:21)
+	at play.core.server.DevServerStart$$anon$1.$anonfun$reload$2(DevServerStart.scala:193)
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:22)
+	at play.core.server.DevServerStart$$anon$1.reload(DevServerStart.scala:185)
+	... 25 common frames omitted
+2022-10-26 16:20:38 [1;31mERROR[0;39m [36mplay.api.http.DevHttpErrorHandler[0;39m [35m[0;39m 
+
+! @7pdgf3pnn - Internal server error, for (GET) [/] ->
  
-play.sbt.PlayExceptions$CompilationException: Compilation error[unclosed multi-line string literal]
-	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:34)
-	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:34)
-	at scala.Option.map(Option.scala:230)
-	at play.sbt.run.PlayReload$.$anonfun$taskFailureHandler$8(PlayReload.scala:131)
-	at scala.Option.map(Option.scala:230)
-	at play.sbt.run.PlayReload$.taskFailureHandler(PlayReload.scala:104)
-	at play.sbt.run.PlayReload$.compileFailure(PlayReload.scala:38)
-	at play.sbt.run.PlayReload$.$anonfun$compile$3(PlayReload.scala:156)
-	at scala.util.Either$LeftProjection.map(Either.scala:573)
-	at play.sbt.run.PlayReload$.compile(PlayReload.scala:156)
-	at play.sbt.run.PlayRun$.$anonfun$playRunTask$4(PlayRun.scala:80)
-	at play.runsupport.Reloader.$anonfun$reload$1(Reloader.scala:496)
-	at play.runsupport.Reloader$$anon$1.run(Reloader.scala:57)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at play.runsupport.Reloader$.play$runsupport$Reloader$$withReloaderContextClassLoader(Reloader.scala:63)
-	at play.runsupport.Reloader.reload(Reloader.scala:496)
-	at play.core.server.DevServerStart$$anon$1.get(DevServerStart.scala:147)
+play.api.UnexpectedException: Unexpected exception[CreationException: Unable to create injector, see the following errors:
+
+1) [Guice/MissingImplementation]: No implementation for services.AsyncUserService was bound.
+
+Requested by:
+1  : controllers.RegisterController.<init>(RegisterController.scala:30)
+      \_ for 4th parameter userService
+     at router.Routes.<init>(Routes.scala:46)
+      \_ for 5th parameter RegisterController_3
+     at RoutesProvider$.bindingsFromConfiguration(BuiltinModule.scala:139):
+Binding(class router.Routes to self)
+      \_ installed by: Modules$OverrideModule -> GuiceableModuleConversions$$anon$4
+
+Learn more:
+  https://github.com/google/guice/wiki/MISSING_IMPLEMENTATION
+
+1 error
+
+======================
+Full classname legend:
+======================
+GuiceableModuleConversions$$anon$4: "play.api.inject.guice.GuiceableModuleConversions$$anon$4"
+Modules$OverrideModule:             "com.google.inject.util.Modules$OverrideModule"
+RoutesProvider$:                    "play.api.inject.RoutesProvider$"
+========================
+End of classname legend:
+========================
+]
+	at play.core.server.DevServerStart$$anon$1.reload(DevServerStart.scala:254)
+	at play.core.server.DevServerStart$$anon$1.get(DevServerStart.scala:148)
 	at play.core.server.AkkaHttpServer.handleRequest(AkkaHttpServer.scala:308)
 	at play.core.server.AkkaHttpServer.$anonfun$createServerBinding$1(AkkaHttpServer.scala:225)
 	at akka.stream.impl.fusing.MapAsync$$anon$30.onPush(Ops.scala:1309)
@@ -157,174 +252,68 @@ play.sbt.PlayExceptions$CompilationException: Compilation error[unclosed multi-l
 	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656)
 	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594)
 	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
-2022-10-26 12:06:15 [1;31mERROR[0;39m [36mplay.api.http.DevHttpErrorHandler[0;39m [35m[0;39m 
+Caused by: com.google.inject.CreationException: Unable to create injector, see the following errors:
 
-! @7pdf7jf13 - Internal server error, for (GET) [/create-an-account] ->
- 
-play.sbt.PlayExceptions$CompilationException: Compilation error[not found: value CSRF]
-	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:34)
-	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:34)
-	at scala.Option.map(Option.scala:230)
-	at play.sbt.run.PlayReload$.$anonfun$taskFailureHandler$8(PlayReload.scala:131)
-	at scala.Option.map(Option.scala:230)
-	at play.sbt.run.PlayReload$.taskFailureHandler(PlayReload.scala:104)
-	at play.sbt.run.PlayReload$.compileFailure(PlayReload.scala:38)
-	at play.sbt.run.PlayReload$.$anonfun$compile$3(PlayReload.scala:156)
-	at scala.util.Either$LeftProjection.map(Either.scala:573)
-	at play.sbt.run.PlayReload$.compile(PlayReload.scala:156)
-	at play.sbt.run.PlayRun$.$anonfun$playRunTask$4(PlayRun.scala:80)
-	at play.runsupport.Reloader.$anonfun$reload$1(Reloader.scala:496)
-	at play.runsupport.Reloader$$anon$1.run(Reloader.scala:57)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at play.runsupport.Reloader$.play$runsupport$Reloader$$withReloaderContextClassLoader(Reloader.scala:63)
-	at play.runsupport.Reloader.reload(Reloader.scala:496)
-	at play.core.server.DevServerStart$$anon$1.get(DevServerStart.scala:147)
-	at play.core.server.AkkaHttpServer.handleRequest(AkkaHttpServer.scala:308)
-	at play.core.server.AkkaHttpServer.$anonfun$createServerBinding$1(AkkaHttpServer.scala:225)
-	at akka.stream.impl.fusing.MapAsync$$anon$30.onPush(Ops.scala:1309)
-	at akka.stream.impl.fusing.GraphInterpreter.processPush(GraphInterpreter.scala:542)
-	at akka.stream.impl.fusing.GraphInterpreter.processEvent(GraphInterpreter.scala:496)
-	at akka.stream.impl.fusing.GraphInterpreter.execute(GraphInterpreter.scala:390)
-	at akka.stream.impl.fusing.GraphInterpreterShell.runBatch(ActorGraphInterpreter.scala:650)
-	at akka.stream.impl.fusing.GraphInterpreterShell$AsyncInput.execute(ActorGraphInterpreter.scala:521)
-	at akka.stream.impl.fusing.GraphInterpreterShell.processEvent(ActorGraphInterpreter.scala:625)
-	at akka.stream.impl.fusing.ActorGraphInterpreter.akka$stream$impl$fusing$ActorGraphInterpreter$$processEvent(ActorGraphInterpreter.scala:800)
-	at akka.stream.impl.fusing.ActorGraphInterpreter$$anonfun$receive$1.applyOrElse(ActorGraphInterpreter.scala:818)
-	at akka.actor.Actor.aroundReceive(Actor.scala:537)
-	at akka.actor.Actor.aroundReceive$(Actor.scala:535)
-	at akka.stream.impl.fusing.ActorGraphInterpreter.aroundReceive(ActorGraphInterpreter.scala:716)
-	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:579)
-	at akka.actor.ActorCell.invoke(ActorCell.scala:547)
-	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:270)
-	at akka.dispatch.Mailbox.run(Mailbox.scala:231)
-	at akka.dispatch.Mailbox.exec(Mailbox.scala:243)
-	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)
-	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1020)
-	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656)
-	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594)
-	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
-2022-10-26 12:07:46 [1;31mERROR[0;39m [36mplay.api.http.DevHttpErrorHandler[0;39m [35m[0;39m 
+1) [Guice/MissingImplementation]: No implementation for services.AsyncUserService was bound.
 
-! @7pdf7oke6 - Internal server error, for (GET) [/create-an-account] ->
- 
-play.sbt.PlayExceptions$CompilationException: Compilation error[Cannot find any HTTP Request Header here]
-	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:34)
-	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:34)
-	at scala.Option.map(Option.scala:230)
-	at play.sbt.run.PlayReload$.$anonfun$taskFailureHandler$8(PlayReload.scala:131)
-	at scala.Option.map(Option.scala:230)
-	at play.sbt.run.PlayReload$.taskFailureHandler(PlayReload.scala:104)
-	at play.sbt.run.PlayReload$.compileFailure(PlayReload.scala:38)
-	at play.sbt.run.PlayReload$.$anonfun$compile$3(PlayReload.scala:156)
-	at scala.util.Either$LeftProjection.map(Either.scala:573)
-	at play.sbt.run.PlayReload$.compile(PlayReload.scala:156)
-	at play.sbt.run.PlayRun$.$anonfun$playRunTask$4(PlayRun.scala:80)
-	at play.runsupport.Reloader.$anonfun$reload$1(Reloader.scala:496)
-	at play.runsupport.Reloader$$anon$1.run(Reloader.scala:57)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at play.runsupport.Reloader$.play$runsupport$Reloader$$withReloaderContextClassLoader(Reloader.scala:63)
-	at play.runsupport.Reloader.reload(Reloader.scala:496)
-	at play.core.server.DevServerStart$$anon$1.get(DevServerStart.scala:147)
-	at play.core.server.AkkaHttpServer.handleRequest(AkkaHttpServer.scala:308)
-	at play.core.server.AkkaHttpServer.$anonfun$createServerBinding$1(AkkaHttpServer.scala:225)
-	at akka.stream.impl.fusing.MapAsync$$anon$30.onPush(Ops.scala:1309)
-	at akka.stream.impl.fusing.GraphInterpreter.processPush(GraphInterpreter.scala:542)
-	at akka.stream.impl.fusing.GraphInterpreter.processEvent(GraphInterpreter.scala:496)
-	at akka.stream.impl.fusing.GraphInterpreter.execute(GraphInterpreter.scala:390)
-	at akka.stream.impl.fusing.GraphInterpreterShell.runBatch(ActorGraphInterpreter.scala:650)
-	at akka.stream.impl.fusing.GraphInterpreterShell$AsyncInput.execute(ActorGraphInterpreter.scala:521)
-	at akka.stream.impl.fusing.GraphInterpreterShell.processEvent(ActorGraphInterpreter.scala:625)
-	at akka.stream.impl.fusing.ActorGraphInterpreter.akka$stream$impl$fusing$ActorGraphInterpreter$$processEvent(ActorGraphInterpreter.scala:800)
-	at akka.stream.impl.fusing.ActorGraphInterpreter$$anonfun$receive$1.applyOrElse(ActorGraphInterpreter.scala:818)
-	at akka.actor.Actor.aroundReceive(Actor.scala:537)
-	at akka.actor.Actor.aroundReceive$(Actor.scala:535)
-	at akka.stream.impl.fusing.ActorGraphInterpreter.aroundReceive(ActorGraphInterpreter.scala:716)
-	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:579)
-	at akka.actor.ActorCell.invoke(ActorCell.scala:547)
-	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:270)
-	at akka.dispatch.Mailbox.run(Mailbox.scala:231)
-	at akka.dispatch.Mailbox.exec(Mailbox.scala:243)
-	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)
-	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1020)
-	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656)
-	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594)
-	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
-2022-10-26 12:08:46 [1;31mERROR[0;39m [36mplay.api.http.DevHttpErrorHandler[0;39m [35m[0;39m 
+Requested by:
+1  : controllers.RegisterController.<init>(RegisterController.scala:30)
+      \_ for 4th parameter userService
+     at router.Routes.<init>(Routes.scala:46)
+      \_ for 5th parameter RegisterController_3
+     at RoutesProvider$.bindingsFromConfiguration(BuiltinModule.scala:139):
+Binding(class router.Routes to self)
+      \_ installed by: Modules$OverrideModule -> GuiceableModuleConversions$$anon$4
 
-! @7pdf82522 - Internal server error, for (GET) [/create-an-account] ->
- 
-play.sbt.PlayExceptions$CompilationException: Compilation error[3 more arguments than can be applied to method apply: (userForm: play.api.data.Form[controllers.RegisterData])(implicit request: play.api.mvc.RequestHeader, implicit messagesProvider: play.api.i18n.MessagesProvider)play.twirl.api.HtmlFormat.Appendable in object RegisterPage]
-	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:34)
-	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:34)
-	at scala.Option.map(Option.scala:230)
-	at play.sbt.run.PlayReload$.$anonfun$taskFailureHandler$8(PlayReload.scala:131)
-	at scala.Option.map(Option.scala:230)
-	at play.sbt.run.PlayReload$.taskFailureHandler(PlayReload.scala:104)
-	at play.sbt.run.PlayReload$.compileFailure(PlayReload.scala:38)
-	at play.sbt.run.PlayReload$.$anonfun$compile$3(PlayReload.scala:156)
-	at scala.util.Either$LeftProjection.map(Either.scala:573)
-	at play.sbt.run.PlayReload$.compile(PlayReload.scala:156)
-	at play.sbt.run.PlayRun$.$anonfun$playRunTask$4(PlayRun.scala:80)
-	at play.runsupport.Reloader.$anonfun$reload$1(Reloader.scala:496)
-	at play.runsupport.Reloader$$anon$1.run(Reloader.scala:57)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at play.runsupport.Reloader$.play$runsupport$Reloader$$withReloaderContextClassLoader(Reloader.scala:63)
-	at play.runsupport.Reloader.reload(Reloader.scala:496)
-	at play.core.server.DevServerStart$$anon$1.get(DevServerStart.scala:147)
-	at play.core.server.AkkaHttpServer.handleRequest(AkkaHttpServer.scala:308)
-	at play.core.server.AkkaHttpServer.$anonfun$createServerBinding$1(AkkaHttpServer.scala:225)
-	at akka.stream.impl.fusing.MapAsync$$anon$30.onPush(Ops.scala:1309)
-	at akka.stream.impl.fusing.GraphInterpreter.processPush(GraphInterpreter.scala:542)
-	at akka.stream.impl.fusing.GraphInterpreter.processEvent(GraphInterpreter.scala:496)
-	at akka.stream.impl.fusing.GraphInterpreter.execute(GraphInterpreter.scala:390)
-	at akka.stream.impl.fusing.GraphInterpreterShell.runBatch(ActorGraphInterpreter.scala:650)
-	at akka.stream.impl.fusing.GraphInterpreterShell$AsyncInput.execute(ActorGraphInterpreter.scala:521)
-	at akka.stream.impl.fusing.GraphInterpreterShell.processEvent(ActorGraphInterpreter.scala:625)
-	at akka.stream.impl.fusing.ActorGraphInterpreter.akka$stream$impl$fusing$ActorGraphInterpreter$$processEvent(ActorGraphInterpreter.scala:800)
-	at akka.stream.impl.fusing.ActorGraphInterpreter$$anonfun$receive$1.applyOrElse(ActorGraphInterpreter.scala:818)
-	at akka.actor.Actor.aroundReceive(Actor.scala:537)
-	at akka.actor.Actor.aroundReceive$(Actor.scala:535)
-	at akka.stream.impl.fusing.ActorGraphInterpreter.aroundReceive(ActorGraphInterpreter.scala:716)
-	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:579)
-	at akka.actor.ActorCell.invoke(ActorCell.scala:547)
-	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:270)
-	at akka.dispatch.Mailbox.run(Mailbox.scala:231)
-	at akka.dispatch.Mailbox.exec(Mailbox.scala:243)
-	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)
-	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1020)
-	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656)
-	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594)
-	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
-2022-10-26 12:15:07 [34mINFO [0;39m [36mplay.api.http.EnabledFilters[0;39m [35m[0;39m Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+Learn more:
+  https://github.com/google/guice/wiki/MISSING_IMPLEMENTATION
+
+1 error
+
+======================
+Full classname legend:
+======================
+GuiceableModuleConversions$$anon$4: "play.api.inject.guice.GuiceableModuleConversions$$anon$4"
+Modules$OverrideModule:             "com.google.inject.util.Modules$OverrideModule"
+RoutesProvider$:                    "play.api.inject.RoutesProvider$"
+========================
+End of classname legend:
+========================
+
+	at com.google.inject.internal.Errors.throwCreationExceptionIfErrorsExist(Errors.java:576)
+	at com.google.inject.internal.InternalInjectorCreator.initializeStatically(InternalInjectorCreator.java:163)
+	at com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:110)
+	at com.google.inject.Guice.createInjector(Guice.java:87)
+	at com.google.inject.Guice.createInjector(Guice.java:78)
+	at play.api.inject.guice.GuiceBuilder.injector(GuiceInjectorBuilder.scala:200)
+	at play.api.inject.guice.GuiceApplicationBuilder.build(GuiceApplicationBuilder.scala:155)
+	at play.api.inject.guice.GuiceApplicationLoader.load(GuiceApplicationLoader.scala:21)
+	at play.core.server.DevServerStart$$anon$1.$anonfun$reload$2(DevServerStart.scala:193)
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:22)
+	at play.core.server.DevServerStart$$anon$1.reload(DevServerStart.scala:185)
+	... 25 common frames omitted
+2022-10-26 16:25:32 [34mINFO [0;39m [36mplay.api.http.EnabledFilters[0;39m [35m[0;39m Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
 
     play.filters.csrf.CSRFFilter
     play.filters.headers.SecurityHeadersFilter
     play.filters.hosts.AllowedHostsFilter
 
-2022-10-26 12:15:07 [34mINFO [0;39m [36mplay.api.Play[0;39m [35m[0;39m Application started (Dev) (no global state)
-2022-10-26 12:16:28 [1;31mERROR[0;39m [36mplay.api.http.DevHttpErrorHandler[0;39m [35m[0;39m 
+2022-10-26 16:25:32 [34mINFO [0;39m [36mplay.api.Play[0;39m [35m[0;39m Application started (Dev) (no global state)
+2022-10-26 16:25:32 [1;31mERROR[0;39m [36mp.api.http.DefaultHttpErrorHandler[0;39m [35m[0;39m 
 
-! @7pdf92boe - Internal server error, for (GET) [/create-an-account] ->
+! @7pdgfkjfi - Internal server error, for (GET) [/] ->
  
-play.sbt.PlayExceptions$CompilationException: Compilation error[unclosed multi-line string literal]
-	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:34)
-	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:34)
+play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[Missing: merge of system properties,hardcoded value,application.conf @ file:/C:/Users/leeap/code-breakers/target/scala-2.12/classes/application.conf: 1,play/reference-overrides.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-akka-http-server_2.12/2.8.18/play-akka-http-server_2.12-2.8.18.jar!/play/reference-overrides.conf: 1,play/reference-overrides.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/repo1.maven.org/maven2/com/typesafe/play/play_2.12/2.8.18/play_2.12-2.8.18.jar!/play/reference-overrides.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-server_2.12/2.8.18/play-server_2.12-2.8.18.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-akka-http-server_2.12/2.8.18/play-akka-http-server_2.12-2.8.18.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/repo1.maven.org/maven2/com/typesafe/play/filters-helpers_2.12/2.8.18/filters-helpers_2.12-2.8.18.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-ahc-ws_2.12/2.8.18/play-ahc-ws_2.12-2.8.18.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/open.artefacts.tax.service.gov.uk/maven2/uk/gov/hmrc/play-frontend-hmrc_2.12/3.23.0-play-28/play-frontend-hmrc_2.12-3.23.0-play-28.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/open.artefacts.tax.service.gov.uk/maven2/uk/gov/hmrc/bootstrap-frontend-play-28_2.12/7.1.0/bootstrap-frontend-play-28_2.12-7.1.0.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/open.artefacts.tax.service.gov.uk/maven2/uk/gov/hmrc/play-language_2.12/5.3.0-play-28/play-language_2.12-5.3.0-play-28.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/repo1.maven.org/maven2/com/typesafe/play/play_2.12/2.8.18/play_2.12-2.8.18.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/repo1.maven.org/maven2/com/typesafe/akka/akka-http-core_2.12/10.1.15/akka-http-core_2.12-10.1.15.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-ahc-ws-standalone_2.12/2.1.10/play-ahc-ws-standalone_2.12-2.1.10.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/open.artefacts.tax.service.gov.uk/maven2/uk/gov/hmrc/bootstrap-common-play-28_2.12/7.1.0/bootstrap-common-play-28_2.12-7.1.0.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/open.artefacts.tax.service.gov.uk/maven2/uk/gov/hmrc/bootstrap-health-play-28_2.12/7.1.0/bootstrap-health-play-28_2.12-7.1.0.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/repo1.maven.org/maven2/com/kenshoo/metrics-play_2.12/2.7.3_0.8.2/metrics-play_2.12-2.7.3_0.8.2.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-guice_2.12/2.8.15/play-guice_2.12-2.8.15.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/open.artefacts.tax.service.gov.uk/maven2/uk/gov/hmrc/http-verbs-play-28_2.12/14.5.0/http-verbs-play-28_2.12-14.5.0.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/open.artefacts.tax.service.gov.uk/maven2/uk/gov/hmrc/play-auditing-play-28_2.12/8.3.0/play-auditing-play-28_2.12-8.3.0.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/repo1.maven.org/maven2/com/typesafe/akka/akka-actor_2.12/2.6.20/akka-actor_2.12-2.6.20.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/repo1.maven.org/maven2/com/typesafe/akka/akka-actor-typed_2.12/2.6.20/akka-actor-typed_2.12-2.6.20.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/repo1.maven.org/maven2/com/typesafe/akka/akka-serialization-jackson_2.12/2.6.20/akka-serialization-jackson_2.12-2.6.20.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/repo1.maven.org/maven2/com/typesafe/ssl-config-core_2.12/0.4.3/ssl-config-core_2.12-0.4.3.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/repo1.maven.org/maven2/com/typesafe/akka/akka-stream_2.12/2.6.20/akka-stream_2.12-2.6.20.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-ws-standalone_2.12/2.1.10/play-ws-standalone_2.12-2.1.10.jar!/reference.conf: 1: No configuration setting found for key 'mongo']]
+	at play.api.http.HttpErrorHandlerExceptions$.$anonfun$convertToPlayException$2(HttpErrorHandler.scala:381)
 	at scala.Option.map(Option.scala:230)
-	at play.sbt.run.PlayReload$.$anonfun$taskFailureHandler$8(PlayReload.scala:131)
-	at scala.Option.map(Option.scala:230)
-	at play.sbt.run.PlayReload$.taskFailureHandler(PlayReload.scala:104)
-	at play.sbt.run.PlayReload$.compileFailure(PlayReload.scala:38)
-	at play.sbt.run.PlayReload$.$anonfun$compile$3(PlayReload.scala:156)
-	at scala.util.Either$LeftProjection.map(Either.scala:573)
-	at play.sbt.run.PlayReload$.compile(PlayReload.scala:156)
-	at play.sbt.run.PlayRun$.$anonfun$playRunTask$4(PlayRun.scala:80)
-	at play.runsupport.Reloader.$anonfun$reload$1(Reloader.scala:496)
-	at play.runsupport.Reloader$$anon$1.run(Reloader.scala:57)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at play.runsupport.Reloader$.play$runsupport$Reloader$$withReloaderContextClassLoader(Reloader.scala:63)
-	at play.runsupport.Reloader.reload(Reloader.scala:496)
-	at play.core.server.DevServerStart$$anon$1.get(DevServerStart.scala:147)
-	at play.core.server.AkkaHttpServer.handleRequest(AkkaHttpServer.scala:308)
+	at play.api.http.HttpErrorHandlerExceptions$.convertToPlayException(HttpErrorHandler.scala:380)
+	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:367)
+	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:264)
+	at play.core.server.Server$$anonfun$handleErrors$1$1.applyOrElse(Server.scala:112)
+	at play.core.server.Server$$anonfun$handleErrors$1$1.applyOrElse(Server.scala:108)
+	at scala.runtime.AbstractPartialFunction.apply(AbstractPartialFunction.scala:38)
+	at play.core.server.Server$.getHandlerFor(Server.scala:132)
+	at play.core.server.AkkaHttpServer.handleRequest(AkkaHttpServer.scala:323)
 	at play.core.server.AkkaHttpServer.$anonfun$createServerBinding$1(AkkaHttpServer.scala:225)
 	at akka.stream.impl.fusing.MapAsync$$anon$30.onPush(Ops.scala:1309)
 	at akka.stream.impl.fusing.GraphInterpreter.processPush(GraphInterpreter.scala:542)
@@ -348,24 +337,82 @@ play.sbt.PlayExceptions$CompilationException: Compilation error[unclosed multi-l
 	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656)
 	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594)
 	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
-2022-10-26 12:16:54 [34mINFO [0;39m [36mplay.api.http.EnabledFilters[0;39m [35m[0;39m Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+Caused by: com.typesafe.config.ConfigException$Missing: merge of system properties,hardcoded value,application.conf @ file:/C:/Users/leeap/code-breakers/target/scala-2.12/classes/application.conf: 1,play/reference-overrides.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-akka-http-server_2.12/2.8.18/play-akka-http-server_2.12-2.8.18.jar!/play/reference-overrides.conf: 1,play/reference-overrides.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/repo1.maven.org/maven2/com/typesafe/play/play_2.12/2.8.18/play_2.12-2.8.18.jar!/play/reference-overrides.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-server_2.12/2.8.18/play-server_2.12-2.8.18.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-akka-http-server_2.12/2.8.18/play-akka-http-server_2.12-2.8.18.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/repo1.maven.org/maven2/com/typesafe/play/filters-helpers_2.12/2.8.18/filters-helpers_2.12-2.8.18.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-ahc-ws_2.12/2.8.18/play-ahc-ws_2.12-2.8.18.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/open.artefacts.tax.service.gov.uk/maven2/uk/gov/hmrc/play-frontend-hmrc_2.12/3.23.0-play-28/play-frontend-hmrc_2.12-3.23.0-play-28.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/open.artefacts.tax.service.gov.uk/maven2/uk/gov/hmrc/bootstrap-frontend-play-28_2.12/7.1.0/bootstrap-frontend-play-28_2.12-7.1.0.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/open.artefacts.tax.service.gov.uk/maven2/uk/gov/hmrc/play-language_2.12/5.3.0-play-28/play-language_2.12-5.3.0-play-28.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/repo1.maven.org/maven2/com/typesafe/play/play_2.12/2.8.18/play_2.12-2.8.18.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/repo1.maven.org/maven2/com/typesafe/akka/akka-http-core_2.12/10.1.15/akka-http-core_2.12-10.1.15.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-ahc-ws-standalone_2.12/2.1.10/play-ahc-ws-standalone_2.12-2.1.10.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/open.artefacts.tax.service.gov.uk/maven2/uk/gov/hmrc/bootstrap-common-play-28_2.12/7.1.0/bootstrap-common-play-28_2.12-7.1.0.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/open.artefacts.tax.service.gov.uk/maven2/uk/gov/hmrc/bootstrap-health-play-28_2.12/7.1.0/bootstrap-health-play-28_2.12-7.1.0.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/repo1.maven.org/maven2/com/kenshoo/metrics-play_2.12/2.7.3_0.8.2/metrics-play_2.12-2.7.3_0.8.2.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-guice_2.12/2.8.15/play-guice_2.12-2.8.15.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/open.artefacts.tax.service.gov.uk/maven2/uk/gov/hmrc/http-verbs-play-28_2.12/14.5.0/http-verbs-play-28_2.12-14.5.0.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/open.artefacts.tax.service.gov.uk/maven2/uk/gov/hmrc/play-auditing-play-28_2.12/8.3.0/play-auditing-play-28_2.12-8.3.0.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/repo1.maven.org/maven2/com/typesafe/akka/akka-actor_2.12/2.6.20/akka-actor_2.12-2.6.20.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/repo1.maven.org/maven2/com/typesafe/akka/akka-actor-typed_2.12/2.6.20/akka-actor-typed_2.12-2.6.20.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/repo1.maven.org/maven2/com/typesafe/akka/akka-serialization-jackson_2.12/2.6.20/akka-serialization-jackson_2.12-2.6.20.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/repo1.maven.org/maven2/com/typesafe/ssl-config-core_2.12/0.4.3/ssl-config-core_2.12-0.4.3.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/repo1.maven.org/maven2/com/typesafe/akka/akka-stream_2.12/2.6.20/akka-stream_2.12-2.6.20.jar!/reference.conf: 1,reference.conf @ jar:file:/C:/Users/leeap/AppData/Local/Coursier/Cache/v1/https/repo1.maven.org/maven2/com/typesafe/play/play-ws-standalone_2.12/2.1.10/play-ws-standalone_2.12-2.1.10.jar!/reference.conf: 1: No configuration setting found for key 'mongo'
+	at com.typesafe.config.impl.SimpleConfig.findKeyOrNull(SimpleConfig.java:157)
+	at com.typesafe.config.impl.SimpleConfig.findKey(SimpleConfig.java:150)
+	at com.typesafe.config.impl.SimpleConfig.findOrNull(SimpleConfig.java:177)
+	at com.typesafe.config.impl.SimpleConfig.find(SimpleConfig.java:189)
+	at com.typesafe.config.impl.SimpleConfig.find(SimpleConfig.java:194)
+	at com.typesafe.config.impl.SimpleConfig.getString(SimpleConfig.java:251)
+	at play.api.ConfigLoader$.$anonfun$stringLoader$2(Configuration.scala:430)
+	at play.api.ConfigLoader$.play$api$ConfigLoader$$$anonfun$apply$1(Configuration.scala:428)
+	at play.api.ConfigLoader$$anonfun$apply$2.load(Configuration.scala:428)
+	at play.api.Configuration.get(Configuration.scala:226)
+	at Module.databaseProvider$1(Module.scala:20)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at com.google.inject.internal.ProviderMethod$ReflectionProviderMethod.doProvision(ProviderMethod.java:284)
+	at com.google.inject.internal.ProviderMethod.doProvision(ProviderMethod.java:171)
+	at com.google.inject.internal.InternalProviderInstanceBindingImpl$CyclicFactory.provision(InternalProviderInstanceBindingImpl.java:185)
+	at com.google.inject.internal.InternalProviderInstanceBindingImpl$CyclicFactory.get(InternalProviderInstanceBindingImpl.java:162)
+	at com.google.inject.internal.SingleParameterInjector.inject(SingleParameterInjector.java:40)
+	at com.google.inject.internal.SingleParameterInjector.getAll(SingleParameterInjector.java:60)
+	at com.google.inject.internal.ConstructorInjector.provision(ConstructorInjector.java:113)
+	at com.google.inject.internal.ConstructorInjector.construct(ConstructorInjector.java:91)
+	at com.google.inject.internal.ConstructorBindingImpl$Factory.get(ConstructorBindingImpl.java:300)
+	at com.google.inject.internal.SingleParameterInjector.inject(SingleParameterInjector.java:40)
+	at com.google.inject.internal.SingleParameterInjector.getAll(SingleParameterInjector.java:60)
+	at com.google.inject.internal.ConstructorInjector.provision(ConstructorInjector.java:113)
+	at com.google.inject.internal.ConstructorInjector.construct(ConstructorInjector.java:91)
+	at com.google.inject.internal.ConstructorBindingImpl$Factory.get(ConstructorBindingImpl.java:300)
+	at com.google.inject.internal.SingleParameterInjector.inject(SingleParameterInjector.java:40)
+	at com.google.inject.internal.SingleParameterInjector.getAll(SingleParameterInjector.java:60)
+	at com.google.inject.internal.ConstructorInjector.provision(ConstructorInjector.java:113)
+	at com.google.inject.internal.ConstructorInjector.construct(ConstructorInjector.java:91)
+	at com.google.inject.internal.ConstructorBindingImpl$Factory.get(ConstructorBindingImpl.java:300)
+	at com.google.inject.internal.ProviderToInternalFactoryAdapter.get(ProviderToInternalFactoryAdapter.java:40)
+	at com.google.inject.internal.SingletonScope$1.get(SingletonScope.java:169)
+	at com.google.inject.internal.InternalFactoryToProviderAdapter.get(InternalFactoryToProviderAdapter.java:45)
+	at com.google.inject.internal.SingleParameterInjector.inject(SingleParameterInjector.java:40)
+	at com.google.inject.internal.SingleParameterInjector.getAll(SingleParameterInjector.java:60)
+	at com.google.inject.internal.ConstructorInjector.provision(ConstructorInjector.java:113)
+	at com.google.inject.internal.ConstructorInjector.construct(ConstructorInjector.java:91)
+	at com.google.inject.internal.ConstructorBindingImpl$Factory.get(ConstructorBindingImpl.java:300)
+	at com.google.inject.internal.InjectorImpl$1.get(InjectorImpl.java:1101)
+	at com.google.inject.internal.InjectorImpl.getInstance(InjectorImpl.java:1139)
+	at play.api.inject.guice.GuiceInjector.instanceOf(GuiceInjectorBuilder.scala:436)
+	at play.api.inject.ContextClassLoaderInjector.$anonfun$instanceOf$3(Injector.scala:120)
+	at play.api.inject.ContextClassLoaderInjector.withContext(Injector.scala:128)
+	at play.api.inject.ContextClassLoaderInjector.instanceOf(Injector.scala:120)
+	at play.api.inject.RoutesProvider.$anonfun$get$2(BuiltinModule.scala:121)
+	at scala.Option.fold(Option.scala:251)
+	at play.api.inject.RoutesProvider.get$lzycompute(BuiltinModule.scala:121)
+	at play.api.inject.RoutesProvider.get(BuiltinModule.scala:116)
+	at play.api.inject.RoutesProvider.get(BuiltinModule.scala:110)
+	at com.google.inject.internal.ProviderInternalFactory.provision(ProviderInternalFactory.java:86)
+	at com.google.inject.internal.BoundProviderFactory.provision(BoundProviderFactory.java:72)
+	at com.google.inject.internal.ProviderInternalFactory.circularGet(ProviderInternalFactory.java:60)
+	at com.google.inject.internal.BoundProviderFactory.get(BoundProviderFactory.java:59)
+	at com.google.inject.internal.InjectorImpl$1.get(InjectorImpl.java:1101)
+	at play.api.http.DefaultHttpRequestHandler.routeRequest(HttpRequestHandler.scala:289)
+	at play.api.http.JavaCompatibleHttpRequestHandler.routeRequest(HttpRequestHandler.scala:396)
+	at play.api.http.DefaultHttpRequestHandler.routeWithFallback$1(HttpRequestHandler.scala:187)
+	at play.api.http.DefaultHttpRequestHandler.handlerForRequest(HttpRequestHandler.scala:237)
+	at play.core.server.Server$.getHandlerFor(Server.scala:129)
+	... 24 common frames omitted
+2022-10-26 16:27:44 [34mINFO [0;39m [36mplay.api.http.EnabledFilters[0;39m [35m[0;39m Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
 
     play.filters.csrf.CSRFFilter
     play.filters.headers.SecurityHeadersFilter
     play.filters.hosts.AllowedHostsFilter
 
-2022-10-26 12:16:54 [34mINFO [0;39m [36mplay.api.Play[0;39m [35m[0;39m Application started (Dev) (no global state)
-2022-10-26 12:18:15 [34mINFO [0;39m [36mplay.api.http.EnabledFilters[0;39m [35m[0;39m Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+2022-10-26 16:27:44 [34mINFO [0;39m [36mplay.api.Play[0;39m [35m[0;39m Application started (Dev) (no global state)
+2022-10-26 16:33:14 [34mINFO [0;39m [36mplay.api.http.EnabledFilters[0;39m [35m[0;39m Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
 
     play.filters.csrf.CSRFFilter
     play.filters.headers.SecurityHeadersFilter
     play.filters.hosts.AllowedHostsFilter
 
-2022-10-26 12:18:15 [34mINFO [0;39m [36mplay.api.Play[0;39m [35m[0;39m Application started (Dev) (no global state)
-2022-10-26 12:19:13 [34mINFO [0;39m [36mplay.api.http.EnabledFilters[0;39m [35m[0;39m Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
-
-    play.filters.csrf.CSRFFilter
-    play.filters.headers.SecurityHeadersFilter
-    play.filters.hosts.AllowedHostsFilter
-
-2022-10-26 12:19:13 [34mINFO [0;39m [36mplay.api.Play[0;39m [35m[0;39m Application started (Dev) (no global state)
+2022-10-26 16:33:14 [34mINFO [0;39m [36mplay.api.Play[0;39m [35m[0;39m Application started (Dev) (no global state)

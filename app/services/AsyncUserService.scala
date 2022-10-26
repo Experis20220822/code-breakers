@@ -11,12 +11,8 @@ import models.User
 import scala.concurrent.Future
 import scala.util.Try
 
-@ImplementedBy(classOf[MongoUserServices])
 trait AsyncUserService {
 
-  def create(user: User): Unit
+  def create(user: User): Future[Option[String]]
 
-  def update(user: User): Try[User]
-
-  def findByUsername(username: String): Future[List[User]]
 }

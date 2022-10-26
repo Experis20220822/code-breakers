@@ -24,20 +24,14 @@ import ExecutionContext.Implicits.global
 
 import scala.util.hashing.MurmurHash3
 
-case class RegisterData( email: String, username: String, password: String)
+  case class RegisterData( email: String, username: String, password: String)
 
 @Singleton class RegisterController @Inject()(
   val mcc: MessagesControllerComponents, view: register, textInputView: text_input,
-  val userService: AsyncUserService,
+  val userService: UserService,
   val controller: ControllerComponents
   )
   (implicit val executionContext: ExecutionContext) extends FrontendController(mcc) with I18nSupport {
-
-//  case class a(val field: String) {}
-
-//  val form: Form[Data] = Form[Data](
-//    mapping("field" -> text)(Data.apply)(Data.unapply)
-//  )
 
   val userForm: Form[RegisterData] = Form(
     mapping(
@@ -48,7 +42,7 @@ case class RegisterData( email: String, username: String, password: String)
     (RegisterData.unapply)
   )
 
-  def init(): Action[AnyContent] = Action { implicit request =>
+  def init(mode: Mode): Action[AnyContent] = Action { implicit request =>
     Ok(view("User", userForm))
   }
 
@@ -60,21 +54,21 @@ case class RegisterData( email: String, username: String, password: String)
           BadRequest(view("Try again", formWithErrors ))
         },
         userData => {
-          val id = MurmurHash3.stringHash(userData.username)
+          val id = MurmurHash3.stringHash(userData.username).toString
           val newUser = models.User(
-            id.toString,
+            id,
             userData.email,
             userData.username,
             userData.password
           )
           println("Yay!" + newUser)
           userService.create(newUser)
-          Redirect(routes.RegisterController.index(id))
+          Redirect(routes.RegisterController.show(id))
         }
       )
   }
 
-  def index(id: Long): Action[AnyContent] = Action { implicit request =>
+  def show(id: String): Action[AnyContent] = Action { implicit request =>
     Ok(view("Test it", userForm))
   }
 

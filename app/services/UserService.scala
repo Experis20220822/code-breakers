@@ -6,16 +6,15 @@
 package services
 
 import models.User
+import repositories.UserRepository
 
+import javax.inject.Inject
 import scala.concurrent.Future
 import scala.util.Try
 
-trait UserService {
+class UserService @Inject() (userRepository: UserRepository) extends AsyncUserService {
 
-  def create(user: User): Unit
+  def create(user: User): Future[Option[String]] = userRepository.create(user)
 
-  def update(user: User): Try[User]
-
-  def findByUsername(username: String): Future[List[User]]
 
 }
