@@ -2,13 +2,12 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
-      <module name="heatwave" target="8" />
+      <module name="code-breakers" target="8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="code-breakers" options="-encoding utf8 -g" />
-      <module name="heatwave" options="-Xlint -encoding UTF-8 -Xlint -encoding UTF-8 --release 8 -encoding utf8 -g" />
+      <module name="code-breakers" options="-Xlint -encoding UTF-8 -Xlint -encoding UTF-8 --release 8 -encoding utf8 -g" />
     </option>
   </component>
 </project>
