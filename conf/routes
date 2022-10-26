@@ -14,7 +14,7 @@ GET     /account-created/:id        controllers.RegisterController.show(id: Stri
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
 
 # Expenses
-GET     /expense                    controllers.ExpenseController.index()
+GET     /expense                    controllers.ExpenseController.index(mode: Mode = NormalMode)
 
 GET     /expense/:id                controllers.ExpenseController.show(id:Long)
 

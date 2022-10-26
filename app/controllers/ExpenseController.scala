@@ -13,7 +13,8 @@ import play.api.i18n.I18nSupport
 import play.api.mvc._
 import services._
 import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendController
-import views.html.{expenseForm, text_input}
+import views.html.expenseForm
+import views.html.text_input
 
 import java.util.Date
 import javax.inject.{Inject, Singleton}
@@ -46,7 +47,7 @@ case class ExpenseData(date: Date, amount: Long, category: String)
       form.bindFromRequest().fold(
         formWithErrors => {
           println("Nay!" + formWithErrors)
-          Future(BadRequest(view("Expenses", "Heading", "Some Text")))
+          Future(BadRequest(view(formWithErrors, mode)))
         },
         expensesData => {
           val id = MurmurHash3.stringHash(expensesData.date + expensesData.amount.toString + expensesData.category)
@@ -80,8 +81,8 @@ case class ExpenseData(date: Date, amount: Long, category: String)
     Ok("This will show our expenses one day")
   }
 
-  def index(): Action[AnyContent] = Action { implicit request =>
-    Ok(view("Expenses", "Heading", "Some Text"))
+  def index(mode: Mode): Action[AnyContent] = Action { implicit request =>
+    Ok(view(form, mode))
   }
 
 }
