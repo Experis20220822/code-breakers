@@ -3,12 +3,19 @@
  *
  */
 
+/*
+ * Copyright 2022 HM Revenue & Customs
+ *
+ */
+
 package services
 
 import models.Expense
 
 import scala.concurrent.Future
+import com.google.inject.ImplementedBy
 
+@ImplementedBy(classOf[MongoExpenseService])
 trait AsyncExpenseService {
   def findById(id: Long): Future[Option[Expense]]
 

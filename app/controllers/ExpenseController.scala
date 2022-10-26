@@ -11,7 +11,7 @@ import play.api.data.Forms.{date, longNumber, mapping, text}
 import play.api.data.validation.Constraints.nonEmpty
 import play.api.i18n.I18nSupport
 import play.api.mvc._
-import services.AsyncExpenseService
+import services._
 import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendController
 import views.html.{expenseForm, text_input}
 
@@ -25,16 +25,11 @@ case class ExpenseData(date: Date, amount: Long, category: String)
 @Singleton class ExpenseController @Inject() (val mcc: MessagesControllerComponents,
                                                view: expenseForm,
                                                textInputView: text_input,
-//                                               val expenseService: AsyncExpenseService,
+                                               val expenseService: AsyncExpenseService,
                                                val controller: ControllerComponents
                                               )
                                               (implicit val executionContext: ExecutionContext) extends FrontendController(mcc) with I18nSupport {
 
-  def list() = Action { implicit request =>
-//    expenseService.findAll().map(p => Ok(view("Expenses", "Heading", "Some Text"))
-//    )
-    Ok("List should appear here")
-  }
 
   val form: Form[ExpenseData] = Form(
     mapping(
@@ -69,7 +64,7 @@ case class ExpenseData(date: Date, amount: Long, category: String)
             }
           )
           println("Yay!" + newExpense)
-//          expenseService.create(newExpense)
+          expenseService.create(newExpense)
           Future(Redirect(routes.ExpenseController.show(id)))
         }
       )
@@ -82,7 +77,7 @@ case class ExpenseData(date: Date, amount: Long, category: String)
 //        case Some(expense) => Ok(view("Expenses", "Heading", "Some Text"))
 //        case None => NotFound("Sorry, that expense cannot be found")
 //      }
-    Ok("should show expenses")
+    Ok("This will show our expenses one day")
   }
 
   def index(): Action[AnyContent] = Action { implicit request =>
