@@ -19,10 +19,12 @@ import views.html.register
 import views.html.text_input
 import play.api.data.validation.Constraints.nonEmpty
 import scala.concurrent.ExecutionContext.Implicits.global
-import scala.concurrent.{ExecutionContext, Future}
+import scala.concurrent._
+import ExecutionContext.Implicits.global
+
 import scala.util.hashing.MurmurHash3
 
-case class RegisterData(id: String, email: String, username: String, password: String)
+case class RegisterData( email: String, username: String, password: String)
 
 @Singleton class RegisterController @Inject()(
   val mcc: MessagesControllerComponents, view: register, textInputView: text_input,
@@ -39,7 +41,6 @@ case class RegisterData(id: String, email: String, username: String, password: S
 
   val userForm: Form[RegisterData] = Form(
     mapping(
-      "id"-> text.verifying(nonEmpty),
       "email" -> text.verifying(nonEmpty),
       "Username" -> text.verifying(nonEmpty),
       "Password" -> text.verifying(nonEmpty),
@@ -52,10 +53,10 @@ case class RegisterData(id: String, email: String, username: String, password: S
   }
 
   def create(mode: Mode): Action[AnyContent] = Action {
+    println("method init")
     implicit request: MessagesRequest[AnyContent] =>
-      userForm.bindFromRequest().fold(
+      userForm.bindFromRequest.fold(
         formWithErrors => {
-          println("Nay!" + formWithErrors)
           BadRequest(view("Try again", formWithErrors ))
         },
         userData => {
@@ -68,12 +69,12 @@ case class RegisterData(id: String, email: String, username: String, password: S
           )
           println("Yay!" + newUser)
           userService.create(newUser)
-          Redirect(routes.RegisterController.index())
+          Redirect(routes.RegisterController.index(id))
         }
       )
   }
 
-  def index(): Action[AnyContent] = Action { implicit request =>
+  def index(id: Long): Action[AnyContent] = Action { implicit request =>
     Ok(view("Test it", userForm))
   }
 
