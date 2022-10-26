@@ -9,7 +9,6 @@ import controllers.HomeController
 import org.mongodb.scala.{MongoClient, MongoDatabase}
 import com.google.inject.{AbstractModule, Provides}
 import org.mongodb.scala.{MongoClient, MongoDatabase}
-import repositories.ExpenseRepository
 import play.api.Configuration
 import services._
 import views.html.index

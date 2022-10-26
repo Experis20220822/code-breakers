@@ -25,9 +25,7 @@ case class ExpenseData(date: Date, amount: Long, category: String)
 
 @Singleton class ExpenseController @Inject() (val mcc: MessagesControllerComponents,
                                                view: expenseForm,
-                                               textInputView: text_input,
                                                val expenseService: AsyncExpenseService,
-                                               val controller: ControllerComponents
                                               )
                                               (implicit val executionContext: ExecutionContext) extends FrontendController(mcc) with I18nSupport {
 
