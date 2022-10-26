@@ -12,21 +12,24 @@ import javax.inject.Inject
 
 class StandardCalculatorService @Inject()  extends AsyncCalculatorService {
   override def calculateSalary(salary: Calculator): Double = {
+     val currentTax = 12570
+
+
     if (salary.pension != 0 && salary.stdLoad != 0)
       salary.taxCode match {
-        case "L" => (salary.salary / 1.20) - (salary.pension) - salary.stdLoad
-        case "M" => (salary.salary * 1.10) / 1.20 - (salary.pension) - salary.stdLoad
-        case "N" => (salary.salary / 1.10) / 1.20 - (salary.pension) - salary.stdLoad
+        case "L"  => if (salary.salary - currentTax > 0) (salary.salary - currentTax) / 1.20 - (salary.pension) - salary.stdLoad else salary.salary
+        case "M" => if (salary.salary - currentTax > 0) ((salary.salary- currentTax) * 1.10) / 1.20 - (salary.pension) - salary.stdLoad else salary.salary
+        case "N" => if (salary.salary - currentTax > 0) ((salary.salary - currentTax) / 1.10) / 1.20 - (salary.pension) - salary.stdLoad else salary.salary
       } else if (salary.pension == 0 && salary.stdLoad != 0)
       salary.taxCode match {
-        case "L" => (salary.salary / 1.20) - salary.stdLoad
-        case "M" => (salary.salary * 1.10) / 1.20 - salary.stdLoad
-        case "N" => (salary.salary / 1.10) / 1.20 - salary.stdLoad
+        case "L" => if (salary.salary - currentTax > 0) (salary.salary - currentTax) / 1.20 - salary.stdLoad else salary.salary
+        case "M" => if (salary.salary - currentTax > 0) ((salary.salary- currentTax) * 1.10) / 1.20 - salary.stdLoad else salary.salary
+        case "N" => if (salary.salary - currentTax > 0) ((salary.salary - currentTax) / 1.10) / 1.20 - salary.stdLoad else salary.salary
       } else
       salary.taxCode match {
-        case "L" => (salary.salary / 1.20) - (salary.pension)
-        case "M" => (salary.salary * 1.10) / 1.20 - (salary.pension)
-        case "N" => (salary.salary / 1.10) / 1.20 - (salary.pension)
+        case "L" =>if (salary.salary - currentTax > 0)  (salary.salary - currentTax) / 1.20  - (salary.pension) else salary.salary
+        case "M" =>if (salary.salary - currentTax > 0) ((salary.salary- currentTax) * 1.10) / 1.20 - (salary.pension) else salary.salary
+        case "N" =>if (salary.salary - currentTax > 0) ((salary.salary - currentTax) / 1.10) / 1.20 - (salary.pension) else salary.salary
       }
 
   }
