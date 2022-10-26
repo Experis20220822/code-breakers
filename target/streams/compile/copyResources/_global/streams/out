@@ -1,0 +1,7 @@
+[0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\Owner\Desktop\LastWeek\test\code-breakers\conf\application.conf,C:\Users\Owner\Desktop\LastWeek\test\code-breakers\target\scala-2.12\classes\application.conf)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\Owner\Desktop\LastWeek\test\code-breakers\conf\logback.xml,C:\Users\Owner\Desktop\LastWeek\test\code-breakers\target\scala-2.12\classes\logback.xml)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\Owner\Desktop\LastWeek\test\code-breakers\conf\messages,C:\Users\Owner\Desktop\LastWeek\test\code-breakers\target\scala-2.12\classes\messages)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\Owner\Desktop\LastWeek\test\code-breakers\conf\production-logback.xml,C:\Users\Owner\Desktop\LastWeek\test\code-breakers\target\scala-2.12\classes\production-logback.xml)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\Owner\Desktop\LastWeek\test\code-breakers\conf\production.conf,C:\Users\Owner\Desktop\LastWeek\test\code-breakers\target\scala-2.12\classes\production.conf)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\Owner\Desktop\LastWeek\test\code-breakers\conf\routes,C:\Users\Owner\Desktop\LastWeek\test\code-breakers\target\scala-2.12\classes\routes)[0m

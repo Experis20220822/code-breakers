@@ -21,3 +21,6 @@ GET     /expenses                   controllers.ExpenseController.list()
 GET     /expense/:id                controllers.ExpenseController.show(id:Long)
 
 POST    /expense                    controllers.ExpenseController.create(mode: Mode = NormalMode)
+GET    /calculator                  controllers.CalculatorController.index()
+POST   /calculator                  controllers.CalculatorController.calculate()
+GET    /show/:id                        controllers.CalculatorController.show(id:Double)
