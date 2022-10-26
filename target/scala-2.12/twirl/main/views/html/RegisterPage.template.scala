@@ -49,30 +49,39 @@ Seq[Any](format.raw/*10.1*/("""<div class="govuk-width-container">
     </div>
 
     <div class="govuk-form-group">
-      <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="event-name">
-        Create a username
+      <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="email">
+        Email
       </label>
       </h1>
-      <input class="govuk-input" id="event-name" name="event-name" type="text">
+      <input class="govuk-input" id="email" name="email" type="text">
     </div>
 
     <div class="govuk-form-group">
-      <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="event-name">
+      <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="username">
+        Create a username
+      </label>
+      </h1>
+      <input class="govuk-input" id="username" name="username" type="text">
+    </div>
+
+    <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="password">
         Create a password
       </label>
       </h1>
-      <input class="govuk-input" id="event-name" name="event-name" type="text">
+      <input class="govuk-input" id="password" name="password" type="text">
     </div>
 
-    <a href="#" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+    <a href=""""),_display_(/*48.15*/routes/*48.21*/.RegisterController.create()),format.raw/*48.49*/("""" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
       Create an account
       <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
         <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
       </svg></a>
 
+
+
   </main>
 </div>
-
 
 """))
       }
@@ -91,9 +100,9 @@ Seq[Any](format.raw/*10.1*/("""<div class="govuk-width-container">
               /*
                   -- GENERATED --
                   SOURCE: app/views/RegisterPage.scala.html
-                  HASH: e20097cdb9498aaa2e28bfd7a312d11175ca5f80
-                  MATRIX: 768->56|877->118|1357->228
-                  LINES: 26->6|29->8|37->10
+                  HASH: 1fd492fdf4390f9fd61cc7373eb8da16a09e6ffd
+                  MATRIX: 768->56|877->118|1357->228|2616->1460|2631->1466|2680->1494
+                  LINES: 26->6|29->8|37->10|75->48|75->48|75->48
                   -- GENERATED --
               */
           

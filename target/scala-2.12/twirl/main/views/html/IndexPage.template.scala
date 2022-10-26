@@ -44,7 +44,7 @@ Seq[Any](format.raw/*10.1*/("""<h1 class="govuk-heading-xl">Code Breakers</h1>
     Button(isStartButton = true, content = HtmlContent("Sign In"), href = Some(routes.LoginController.index().url))
 )),format.raw/*18.2*/("""
 """),_display_(/*19.2*/govukButton(
-    Button(isStartButton = true, content = HtmlContent("Create an account"), href = Some(routes.RegisterController.index().url))
+    Button(isStartButton = true, content = HtmlContent("Create an account"), href = Some(routes.RegisterController.init().url))
 )),format.raw/*21.2*/("""
 
 
@@ -65,8 +65,8 @@ Seq[Any](format.raw/*10.1*/("""<h1 class="govuk-heading-xl">Code Breakers</h1>
               /*
                   -- GENERATED --
                   SOURCE: app/views/IndexPage.scala.html
-                  HASH: 338ae9e120ac05b901891336d7d99095dd3912a8
-                  MATRIX: 768->56|874->118|1306->180|1384->232|1535->363|1566->368|1718->500|1747->503|1912->648
+                  HASH: 7b776325c048514aef371861658a14ac97d449c7
+                  MATRIX: 768->56|874->118|1306->180|1384->232|1535->363|1566->368|1718->500|1747->503|1911->647
                   LINES: 26->6|29->8|37->10|39->12|41->14|43->16|45->18|46->19|48->21
                   -- GENERATED --
               */

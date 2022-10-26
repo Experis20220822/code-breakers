@@ -9,7 +9,8 @@ import org.mongodb.scala.MongoDatabase
 
 import javax.inject.Inject
 
-class StandardCalculatorService  extends AsyncCalculatorService {
+
+class StandardCalculatorService @Inject()  extends AsyncCalculatorService {
   override def calculateSalary(salary: Calculator): Double = {
     if (salary.pension != 0 && salary.stdLoad != 0)
       salary.taxCode match {

@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/code-breakers.iml" filepath="$PROJECT_DIR$/.idea/modules/code-breakers.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/code-breakers-build.iml" filepath="$PROJECT_DIR$/.idea/modules/code-breakers-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/project.code-breakers-build.iml" filepath="$PROJECT_DIR$/.idea/modules/project.code-breakers-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/test.code-breakers.iml" filepath="$PROJECT_DIR$/.idea/modules/test.code-breakers.iml" />
     </modules>
   </component>
 </project>

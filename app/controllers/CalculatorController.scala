@@ -22,6 +22,7 @@ import javax.inject.Inject
 import scala.concurrent.{ExecutionContext, Future}
 
 
+
 case class CalculatorFormData(salary: Long, taxCode: String, pensionCount: Long = 0, stdLoan: Long = 0)
 
 class CalculatorController @Inject()
@@ -71,8 +72,10 @@ class CalculatorController @Inject()
   }
 
   def show(result: Double): Action[AnyContent] = Action { implicit request =>
+    val salaryResult = BigDecimal(result)
+    val roundedResult = salaryResult.setScale(2, BigDecimal.RoundingMode.HALF_UP)
     println(result+ " Im here")
-    Ok("Your take home is " + result)
+    Ok("Your take home is " + roundedResult)
 
   }
 

@@ -16,7 +16,7 @@
 [0m[[0m[33mwarn[0m] [0m[0mC:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\controllers\CalculatorController.scala:18:26: Unused import[0m
 [0m[[0m[33mwarn[0m] [0m[0mimport views.html.helper.form[0m
 [0m[[0m[33mwarn[0m] [0m[0m                         ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mC:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\controllers\CalculatorController.scala:73:68: parameter value request in value $anonfun is never used[0m
+[0m[[0m[33mwarn[0m] [0m[0mC:\Users\Owner\Desktop\LastWeek\test\code-breakers\app\controllers\CalculatorController.scala:74:68: parameter value request in value $anonfun is never used[0m
 [0m[[0m[33mwarn[0m] [0m[0m  def show(result: Double): Action[AnyContent] = Action { implicit request =>[0m
 [0m[[0m[33mwarn[0m] [0m[0m                                                                   ^[0m
 [0m[[0m[33mwarn[0m] [0m[0m7 warnings found[0m
