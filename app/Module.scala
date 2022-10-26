@@ -3,6 +3,7 @@
  *
  */
 
+<<<<<<< HEAD
 import com.google.inject._
 import config.AppConfig
 import controllers.HomeController
@@ -30,3 +31,15 @@ class Module extends AbstractModule {
 //    bind(classOf[AsyncExpenseService]).to(classOf[MongoExpenseService])
   }
 }
+=======
+import com.google.inject.{AbstractModule}
+import services._
+
+class Module extends AbstractModule{
+  override def configure(): Unit = {
+
+    bind(classOf[AsyncExpenseService]).to(classOf[MongoExpenseService])
+  }
+}
+
+>>>>>>> f67bbaad911ef355572b98e1b49bf5e1daf3ff5c
