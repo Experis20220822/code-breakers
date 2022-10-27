@@ -61,8 +61,6 @@
             inputType = "password"
         ))
 
-        @govukButton(
-            Button(href = Some(routes.CalculatorController.index().url), content = HtmlContent("Create Account"))
-        )
+        @govukButton(ButtonViewModel (content = HtmlContent("Create Account")))
     }
 }

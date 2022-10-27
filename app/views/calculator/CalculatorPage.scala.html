@@ -7,7 +7,7 @@
 
 @this(govukButton: GovukButton,  formHelper: FormWithCSRF, govukInput: GovukInput, govukBackLink: GovukBackLink)
 @(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages)
-@govukBackLink(BackLink(href = routes.CalculatorController.index().url))
+@govukBackLink(BackLink(href = routes.HomeController.index().url))
 
 <h1 class="govuk-heading-xl">Calculator</h1>
 <div class="govuk-inset-text">

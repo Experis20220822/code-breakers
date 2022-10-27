@@ -38,8 +38,8 @@ case class RegisterData( email: String, username: String, password: String)
     val userForm: Form[RegisterData] = Form(
       mapping(
         "email" -> text.verifying(nonEmpty),
-        "Username" -> text.verifying(nonEmpty),
-        "Password" -> text.verifying(nonEmpty),
+        "username" -> text.verifying(nonEmpty),
+        "password" -> text.verifying(nonEmpty),
       )(RegisterData.apply)
       (RegisterData.unapply)
     )
@@ -48,6 +48,7 @@ case class RegisterData( email: String, username: String, password: String)
     implicit request =>
       userForm.bindFromRequest.fold(
         formWithErrors => {
+          println(formWithErrors)
           Future(BadRequest(view(formWithErrors, mode)))
         },
         userData => {
@@ -59,8 +60,10 @@ case class RegisterData( email: String, username: String, password: String)
             userData.password
           )
           println("Yay!" + newUser)
-          userService.create(newUser)
-          Future(Redirect(routes.RegisterController.show(id)))
+          userService.create(newUser).map {
+            case Some(id) => Redirect(routes.RegisterController.show(id))
+            case None => NotFound("Sorry, User not created")
+          }
         }
       )
   }
