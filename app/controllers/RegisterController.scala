@@ -61,7 +61,7 @@ case class RegisterData( email: String, username: String, password: String)
           )
           println("Yay!" + newUser)
           userService.create(newUser).map {
-            case Some(id) => Redirect(routes.RegisterController.show(id))
+            case Some(id) => Redirect(routes.CalculatorController.index()).withCookies(Cookie.apply("HMRCUser", newUser.username))
             case None => NotFound("Sorry, User not created")
           }
         }

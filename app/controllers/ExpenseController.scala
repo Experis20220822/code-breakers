@@ -51,7 +51,7 @@ case class ExpenseData(date: Date, amount: Long, category: String)
       form.bindFromRequest().fold(
         formWithErrors => {
           println("Nay!" + formWithErrors)
-          BadRequest(view(formWithErrors, mode))
+          BadRequest(view(formWithErrors, mode, "-1"))
         },
         expensesData => {
           val id = MurmurHash3.stringHash(expensesData.date + expensesData.amount.toString + expensesData.category).toString
@@ -76,7 +76,8 @@ case class ExpenseData(date: Date, amount: Long, category: String)
   }
 
   def index(mode: Mode): Action[AnyContent] = Action { implicit request =>
-    Ok(view(form, mode))
+    request.cookies.get("HMRCUser").map(c => Ok(view(form, mode, c.value))).getOrElse(NotFound("Need to be logged in"))
+
   }
 
 }
