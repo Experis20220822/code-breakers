@@ -1,19 +1,7 @@
-[0m[[0m[31merror[0m] [0m[0mC:\Users\leeap\code-breakers\app\Module.scala:6:1: expected class or object definition[0m
-[0m[[0m[31merror[0m] [0m[0m<<<<<<< HEAD[0m
-[0m[[0m[31merror[0m] [0m[0m^[0m
-[0m[[0m[31merror[0m] [0m[0mC:\Users\leeap\code-breakers\app\Module.scala:34:1: expected class or object definition[0m
-[0m[[0m[31merror[0m] [0m[0m=======[0m
-[0m[[0m[31merror[0m] [0m[0m^[0m
-[0m[[0m[31merror[0m] [0m[0mC:\Users\leeap\code-breakers\app\Module.scala:45:1: expected class or object definition[0m
-[0m[[0m[31merror[0m] [0m[0m<<<<<<< HEAD[0m
-[0m[[0m[31merror[0m] [0m[0m^[0m
-[0m[[0m[31merror[0m] [0m[0mC:\Users\leeap\code-breakers\app\Module.scala:46:1: expected class or object definition[0m
-[0m[[0m[31merror[0m] [0m[0m=======[0m
-[0m[[0m[31merror[0m] [0m[0m^[0m
-[0m[[0m[31merror[0m] [0m[0mC:\Users\leeap\code-breakers\app\Module.scala:47:1: expected class or object definition[0m
-[0m[[0m[31merror[0m] [0m[0m>>>>>>> f67bbaad911ef355572b98e1b49bf5e1daf3ff5c[0m
-[0m[[0m[31merror[0m] [0m[0m^[0m
-[0m[[0m[31merror[0m] [0m[0mC:\Users\leeap\code-breakers\app\Module.scala:48:1: expected class or object definition[0m
-[0m[[0m[31merror[0m] [0m[0m>>>>>>> staging_lap[0m
-[0m[[0m[31merror[0m] [0m[0m^[0m
-[0m[[0m[31merror[0m] [0m[0m6 errors found[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\leeap\code-breakers\app\views\RegisterPage.scala.html:65:14: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : scala.xml.Elem[0m
+[0m[[0m[31merror[0m] [0m[0m required: uk.gov.hmrc.govukfrontend.views.html.components.Button[0m
+[0m[[0m[31merror[0m] [0m[0m    (which expands to)  uk.gov.hmrc.govukfrontend.views.viewmodels.button.Button[0m
+[0m[[0m[31merror[0m] [0m[0m            <button type="submit" id="submit">Submit</button>[0m
+[0m[[0m[31merror[0m] [0m[0m             ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m

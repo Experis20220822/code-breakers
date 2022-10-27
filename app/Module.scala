@@ -3,7 +3,6 @@
  *
  */
 
-
 import com.google.inject._
 import config.AppConfig
 import controllers.HomeController

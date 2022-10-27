@@ -14,7 +14,8 @@ import scala.util.Try
 
 class UserService @Inject() (userRepository: UserRepository) extends AsyncUserService {
 
-  def create(user: User): Future[Option[String]] = userRepository.create(user)
+  override def create(user: User): Future[Option[String]] = userRepository.create(user)
 
+  override def findById(id: String): Future[Option[User]] = ???
 
 }

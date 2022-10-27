@@ -4,55 +4,65 @@
  *@
 
 @import uk.gov.hmrc.govukfrontend.views.Aliases.Button
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import uk.gov.hmrc.govukfrontend.views.html.components.implicits._
+@import uk.gov.hmrc.govukfrontend.views.Implicits._
+@import uk.gov.hmrc.hmrcfrontend.views.html.components.implicits._
+@import uk.gov.hmrc.govukfrontend.views.viewmodels.input.PrefixOrSuffix
 
-@this(govukSelect: GovukSelect, govukButton: GovukButton, govukFieldset: GovukFieldset, govukInput: GovukInput)
+@import viewmodels.InputWidth._
 
-<div class="govuk-width-container">
-  <a href="/" class="govuk-back-link">Back</a>
+@this(
+    formHelper: FormWithCSRF,
+    layout: views.html.Layout,
+    govukErrorSummary: GovukErrorSummary,
+    govukInput: GovukInput,
+    govukButton: GovukButton,
+    govukBackLink: GovukBackLink,
+    govukHint: GovukHint
+)
 
-  <main class="govuk-main-wrapper">
+@(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages)
 
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-xl">Create an account</h1>
-        <div class="govuk-inset-text">
-          Create your account details here
-        </div>
-      </div>
-    </div>
+@import uk.gov.hmrc.play._
 
-    <div class="govuk-form-group">
-      <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="email">
-        Email
-      </label>
-      </h1>
-      <input class="govuk-input" id="email" name="email" type="text">
-    </div>
+@layout(pageTitle = title(form, messages("User")), isWelshTranslationAvailable = true) {
+    @govukBackLink(BackLink(href = routes.HomeController.index().url))
 
-    <div class="govuk-form-group">
-      <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="username">
-        Create a username
-      </label>
-      </h1>
-      <input class="govuk-input" id="username" name="username" type="text">
-    </div>
+    <h1 class="govuk-heading-l">@messages("Create an Account")</h1>
 
-    <div class="govuk-form-group">
-      <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="password">
-        Create a password
-      </label>
-      </h1>
-      <input class="govuk-input" id="password" name="password" type="text">
-    </div>
+    @formHelper(action = routes.RegisterController.create(), 'autoComplete -> "off") {
 
-    <a href="@routes.RegisterController.create()" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
-      Create an account
-      <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
-        <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-      </svg></a>
+        @govukInput(Input(
+            id = "email",
+            name = "email",
+            label = Label(content = Text("Email")),
+            value = form("email").value,
+            errorMessage = form("email").error.map(err => ErrorMessage(content = Text(messages("This field must not be blank")))),
+            classes = "govuk-!-width-one-half",
+        ))
 
+        @govukInput(Input(
+            id = "username",
+            name = "username",
+            label = Label(content = Text(messages("Username"))),
+            value = form("username").value,
+            errorMessage = form("username").error.map(err => ErrorMessage(content = Text(messages("This field must not be blank")))),
+            classes = "govuk-!-width-one-half"
+        ))
 
+        @govukInput(Input(
+            id = "password",
+            name = "password",
+            label = Label(content = Text(messages("Password"))),
+            value = form("password").value,
+            errorMessage = form("password").error.map(err => ErrorMessage(content = Text(messages("This field must not be blank")))),
+            classes = "govuk-!-width-one-half",
+            inputType = "password"
+        ))
 
-  </main>
-</div>
-
+        @govukButton(
+            Button(href = Some(routes.CalculatorController.index().url), content = HtmlContent("Create Account"))
+        )
+    }
+}

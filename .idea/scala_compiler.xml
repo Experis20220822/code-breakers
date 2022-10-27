@@ -24,11 +24,11 @@
         <parameter value="-Xmax-classfile-name" />
         <parameter value="100" />
         <parameter value="-P:silencer:pathFilters=target/.*" />
-        <parameter value="-P:silencer:sourceRoots=C:\Users\Owner\Desktop\LastWeek\test\code-breakers" />
+        <parameter value="-P:silencer:sourceRoots=C:\Users\leeap\code-breakers" />
         <parameter value="-P:silencer:globalFilters=possible missing interpolator: detected interpolated identifier `\$date`" />
       </parameters>
       <plugins>
-        <plugin path="C:\Users\Owner\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\com\github\ghik\silencer-plugin_2.12.10\1.6.0\silencer-plugin_2.12.10-1.6.0.jar" />
+        <plugin path="C:\Users\leeap\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\com\github\ghik\silencer-plugin_2.12.10\1.6.0\silencer-plugin_2.12.10-1.6.0.jar" />
       </plugins>
     </profile>
     <profile name="sbt 3" modules="heatwave">

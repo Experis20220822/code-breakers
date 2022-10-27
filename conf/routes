@@ -8,7 +8,7 @@ GET     /                           controllers.HomeController.index()
 GET     /login                      controllers.LoginController.index()
 GET     /create-an-account          controllers.RegisterController.init(mode: Mode = NormalMode)
 POST    /account-created            controllers.RegisterController.create(mode:Mode = NormalMode)
-GET     /account-created/:id        controllers.RegisterController.show(id: String)
+GET     /account-created/:id        controllers.RegisterController.show(id: String, mode:Mode = NormalMode)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

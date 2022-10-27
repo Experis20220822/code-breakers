@@ -12,7 +12,8 @@ import scala.concurrent.Future
 import scala.util.Try
 
 trait AsyncUserService {
-
   def create(user: User): Future[Option[String]]
+
+  def findById(id: String): Future[Option[User]]
 
 }
