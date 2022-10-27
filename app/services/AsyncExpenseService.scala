@@ -15,7 +15,7 @@ import models.Expense
 import scala.concurrent.Future
 import com.google.inject.ImplementedBy
 
-@ImplementedBy(classOf[MongoExpenseService])
+@ImplementedBy(classOf[ExpenseRepository])
 trait AsyncExpenseService {
   def findById(id: Long): Future[Option[Expense]]
 

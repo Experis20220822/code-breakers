@@ -7,14 +7,13 @@ package services
 
 import models._
 import org.mongodb.scala.model.Filters.equal
-import org.mongodb.scala.{Document, MongoCollection}
-import uk.gov.hmrc.mongo.MongoComponent
+import org.mongodb.scala.{Document, MongoCollection, MongoDatabase}
 
 import javax.inject.Inject
 import scala.concurrent.Future
 
-class MongoExpenseService @Inject()(mongoDatabase: MongoComponent) extends AsyncExpenseService {
-  val expenseCollection: MongoCollection[Document] = mongoDatabase.database.getCollection("expenses")
+class ExpenseRepository @Inject()(mongoDatabase: MongoDatabase) extends AsyncExpenseService {
+  val expenseCollection: MongoCollection[Document] = mongoDatabase.getCollection("expenses")
 
   override def create(expense: Expense): Unit = {
     val document: Document = expenseToDocument(expense)
