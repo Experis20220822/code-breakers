@@ -16,7 +16,7 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 # Expenses
 GET     /expense                    controllers.ExpenseController.index(mode: Mode = NormalMode)
 
-GET     /expense/:id                controllers.ExpenseController.show(id:Long)
+GET     /expense/:id                controllers.ExpenseController.show(id:Long, mode:Mode = NormalMode)
 
 POST    /expense                    controllers.ExpenseController.create(mode: Mode = NormalMode)
 GET    /calculator                  controllers.CalculatorController.index()

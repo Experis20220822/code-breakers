@@ -7,16 +7,14 @@ package controllers
 
 import models._
 import play.api.data.Form
-import play.api.data.Forms.{date, longNumber, mapping, text}
+import play.api.data.Forms.{longNumber, mapping, text}
 import play.api.data.validation.Constraints.nonEmpty
 import play.api.i18n.I18nSupport
 import play.api.mvc._
 import services._
 import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendController
 import views.html.expenseForm
-import views.html.text_input
 
-import java.util.Date
 import javax.inject.{Inject, Singleton}
 import scala.concurrent.{ExecutionContext, Future}
 import scala.util.hashing.MurmurHash3
@@ -25,14 +23,22 @@ case class ExpenseData(date: Date, amount: Long, category: String)
 
 @Singleton class ExpenseController @Inject() (val mcc: MessagesControllerComponents,
                                                view: expenseForm,
-                                               val expenseService: AsyncExpenseService,
+                                               val expenseService: ExpenseService,
                                               )
                                               (implicit val executionContext: ExecutionContext) extends FrontendController(mcc) with I18nSupport {
 
 
+  def list() = Action { implicit request =>
+    Ok("will show list of expenses")
+  }
+
   val form: Form[ExpenseData] = Form(
     mapping(
-      "date" -> date,
+      "date" -> mapping(
+        "day" -> text.verifying(nonEmpty),
+        "month" -> text.verifying(nonEmpty),
+        "year" -> text.verifying(nonEmpty)
+      )(Date.apply)(Date.unapply),
       "amount" -> longNumber,
       "category" -> text.verifying(nonEmpty),
     )(ExpenseData.apply)
@@ -69,14 +75,13 @@ case class ExpenseData(date: Date, amount: Long, category: String)
       )
   }
 
-  def show(id: Long): Action[AnyContent] = Action { implicit request =>
-//    val maybeExpense = expenseService.findById(id)
-//    maybeExpense
-//      .map {
-//        case Some(expense) => Ok(view("Expenses", "Heading", "Some Text"))
-//        case None => NotFound("Sorry, that expense cannot be found")
-//      }
-    Ok("This will show our expenses one day")
+  def show(id: Long, mode: Mode): Action[AnyContent] = Action.async { implicit request =>
+    val maybeExpense = expenseService.findById(id)
+    maybeExpense
+      .map {
+        case Some(expense) => Ok(view(form, mode))
+        case None => NotFound("Sorry, that expense cannot be found")
+      }
   }
 
   def index(mode: Mode): Action[AnyContent] = Action { implicit request =>

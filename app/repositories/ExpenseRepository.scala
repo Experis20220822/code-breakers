@@ -15,6 +15,7 @@ import scala.concurrent.Future
 class ExpenseRepository @Inject()(mongoDatabase: MongoDatabase) extends AsyncExpenseService {
   val expenseCollection: MongoCollection[Document] = mongoDatabase.getCollection("expenses")
 
+
   override def create(expense: Expense): Unit = {
     val document: Document = expenseToDocument(expense)
     expenseCollection.insertOne(document).subscribe(
@@ -31,9 +32,12 @@ class ExpenseRepository @Inject()(mongoDatabase: MongoDatabase) extends AsyncExp
   }
 
   private def expenseToDocument(expense: Expense): Document = {
+    val day = expense.date.day
+    val month = expense.date.month
+    val year = expense.date.year
     Document(
       "_id" -> expense.id,
-      "date" -> expense.date,
+      "date" -> s"$day $month $year",
       "amount" -> expense.amount,
       "category" -> expense.category.toString,
     )
@@ -58,9 +62,10 @@ class ExpenseRepository @Inject()(mongoDatabase: MongoDatabase) extends AsyncExp
   }
 
   private def documentToExpense(d: Document) = {
+    val dateArr = d.getString("date").split(" ")
     Expense(
       d.getLong("_id"),
-      d.getDate("date"),
+      Date(dateArr(0), dateArr(1), dateArr(2)),
       d.getLong("amount"),
       stringToCategory(d.getString("category"))
     )
