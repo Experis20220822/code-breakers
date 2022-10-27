@@ -5,7 +5,6 @@
 
 package services
 import models.Calculator
-import org.mongodb.scala.MongoDatabase
 
 import javax.inject.Inject
 

@@ -8,19 +8,17 @@ package controllers
 import models._
 import play.api.data.Form
 import play.api.data.Forms.{mapping, text}
-import services.{AsyncUserService, UserService}
+import services.UserService
 
 import javax.inject.{Inject, Singleton}
-import play.api.i18n.{I18nSupport, Lang}
+import play.api.i18n.I18nSupport
 import play.api.mvc._
-import play.filters.csrf.CSRF
 import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendController
 import views.html.RegisterPage
 import views.html.text_input
 import play.api.data.validation.Constraints.nonEmpty
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent._
-import ExecutionContext.Implicits.global
 
 import scala.util.hashing.MurmurHash3
 

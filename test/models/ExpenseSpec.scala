@@ -6,7 +6,6 @@
 package models
 
 import org.scalatestplus.play.PlaySpec
-import java.util.Date
 
 class ExpenseSpec extends PlaySpec {
 
