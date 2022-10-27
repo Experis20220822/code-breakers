@@ -6,4 +6,4 @@
 package models
 
 
-case class Expense(id: Long, date: Date, amount: Long, category: Category)
+case class Expense(id: String, date: Date, amount: Long, category: Category)

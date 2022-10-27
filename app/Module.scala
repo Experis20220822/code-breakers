@@ -25,7 +25,7 @@ class Module extends AbstractModule {
       mongoClient.getDatabase(database)
     }
 
-    bind(classOf[AsyncExpenseService]).to(classOf[ExpenseRepository])
+    bind(classOf[AsyncExpenseService]).to(classOf[ExpenseService])
     bind(classOf[AsyncUserService]).to(classOf[UserService])
   }
 }

@@ -16,7 +16,7 @@ import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendController
 import views.html.expenseForm
 
 import javax.inject.{Inject, Singleton}
-import scala.concurrent.{ExecutionContext, Future}
+import scala.concurrent.{ExecutionContext}
 import scala.util.hashing.MurmurHash3
 
 case class ExpenseData(date: Date, amount: Long, category: String)
@@ -27,10 +27,6 @@ case class ExpenseData(date: Date, amount: Long, category: String)
                                               )
                                               (implicit val executionContext: ExecutionContext) extends FrontendController(mcc) with I18nSupport {
 
-
-  def list() = Action { implicit request =>
-    Ok("will show list of expenses")
-  }
 
   val form: Form[ExpenseData] = Form(
     mapping(
@@ -46,15 +42,15 @@ case class ExpenseData(date: Date, amount: Long, category: String)
   )
 
 
-  def create(mode: Mode) = Action.async {
+  def create(mode: Mode) = Action {
     implicit request =>
       form.bindFromRequest().fold(
         formWithErrors => {
           println("Nay!" + formWithErrors)
-          Future(BadRequest(view(formWithErrors, mode)))
+          BadRequest(view(formWithErrors, mode, "-1"))
         },
         expensesData => {
-          val id = MurmurHash3.stringHash(expensesData.date + expensesData.amount.toString + expensesData.category)
+          val id = MurmurHash3.stringHash(expensesData.date + expensesData.amount.toString + expensesData.category).toString
           val newExpense = Expense(
             id,
             expensesData.date,
@@ -70,22 +66,14 @@ case class ExpenseData(date: Date, amount: Long, category: String)
           )
           println("Yay!" + newExpense)
           expenseService.create(newExpense)
-          Future(Redirect(routes.ExpenseController.show(id)))
+          Redirect(routes.ExpenseResultController.show(id))
         }
       )
   }
 
-  def show(id: Long, mode: Mode): Action[AnyContent] = Action.async { implicit request =>
-    val maybeExpense = expenseService.findById(id)
-    maybeExpense
-      .map {
-        case Some(expense) => Ok(view(form, mode))
-        case None => NotFound("Sorry, that expense cannot be found")
-      }
-  }
-
   def index(mode: Mode): Action[AnyContent] = Action { implicit request =>
-    Ok(view(form, mode))
+    request.cookies.get("HMRCUser").map(c => Ok(view(form, mode, c.value))).getOrElse(NotFound("Need to be logged in"))
+
   }
 
 }
