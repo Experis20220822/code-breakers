@@ -64,7 +64,7 @@ class ExpenseRepository @Inject()(mongoDatabase: MongoDatabase) extends AsyncExp
   private def documentToExpense(d: Document) = {
     val dateArr = d.getString("date").split(" ")
     Expense(
-      d.getString("_id"),
+      d("_id").toString,
       Date(dateArr(0), dateArr(1), dateArr(2)),
       d.getLong("amount"),
       stringToCategory(d.getString("category"))

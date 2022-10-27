@@ -1,0 +1,35 @@
+@*
+ * Copyright 2022 HM Revenue & Customs
+ *
+ *@
+
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import uk.gov.hmrc.govukfrontend.views.html.components.implicits._
+@import uk.gov.hmrc.govukfrontend.views.Implicits._
+@import uk.gov.hmrc.hmrcfrontend.views.html.components.implicits._
+
+
+@this(hmrcLayout: HmrcLayout, govukBackLink: GovukBackLink)
+
+@(expenses: List[Expense])
+<h1>Expense Table</h1>
+
+<table class="govuk-table">
+ <caption class="govuk-table__caption govuk-table__caption--m">Dates and amounts</caption>
+ <thead class="govuk-table__head">
+ <tr class="govuk-table__row">
+  <th scope="col" class="govuk-table__header">Date</th>
+  <th scope="col" class="govuk-table__header">Amount</th>
+  <th scope="col" class="govuk-table__header">Category</th>
+ </tr>
+ </thead>
+ <tbody class="govuk-table__body">
+ @for(expense <- expenses) {
+ <tr class="govuk-table__row">
+  <th scope="row" class="govuk-table__header">@expense.date</th>
+  <td class="govuk-table__cell">£@expense.amount</td>
+  <td class="govuk-table__cell">@expense.category</td>
+ </tr>
+ }
+ </tbody>
+</table>
