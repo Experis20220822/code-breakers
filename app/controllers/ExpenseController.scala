@@ -16,7 +16,7 @@ import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendController
 import views.html.expenseForm
 
 import javax.inject.{Inject, Singleton}
-import scala.concurrent.{ExecutionContext, Future}
+import scala.concurrent.{ExecutionContext}
 import scala.util.hashing.MurmurHash3
 
 case class ExpenseData(date: Date, amount: Long, category: String)
@@ -46,12 +46,12 @@ case class ExpenseData(date: Date, amount: Long, category: String)
   )
 
 
-  def create(mode: Mode) = Action.async {
+  def create(mode: Mode) = Action {
     implicit request =>
       form.bindFromRequest().fold(
         formWithErrors => {
           println("Nay!" + formWithErrors)
-          Future(BadRequest(view(formWithErrors, mode)))
+          BadRequest(view(formWithErrors, mode))
         },
         expensesData => {
           val id = MurmurHash3.stringHash(expensesData.date + expensesData.amount.toString + expensesData.category).toString
@@ -70,18 +70,9 @@ case class ExpenseData(date: Date, amount: Long, category: String)
           )
           println("Yay!" + newExpense)
           expenseService.create(newExpense)
-          Future(Redirect(routes.ExpenseController.show(id)))
+          Redirect(routes.ExpenseResultController.show(id))
         }
       )
-  }
-
-  def show(id: String, mode: Mode): Action[AnyContent] = Action.async { implicit request =>
-    val maybeExpense = expenseService.findById(id)
-    maybeExpense
-      .map {
-        case Some(expense) => Ok(view(form, mode))
-        case None => NotFound("Sorry, that expense cannot be found")
-      }
   }
 
   def index(mode: Mode): Action[AnyContent] = Action { implicit request =>

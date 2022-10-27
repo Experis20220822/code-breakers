@@ -1,0 +1,27 @@
+@*
+ * Copyright 2022 HM Revenue & Customs
+ *
+ *@
+
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+
+
+@this(
+formHelper: FormWithCSRF,
+govukBackLink: GovukBackLink,
+govukButton: GovukButton,
+govukDateInput: GovukDateInput,
+govukErrorSummary: GovukErrorSummary,
+govukInput: GovukInput,
+govukLabel: GovukLabel,
+govukSelect: GovukSelect,
+layout: Layout,
+)
+
+@(expense: Expense)
+
+<h1>Expenses</h1>
+
+<p><strong>Date:</strong> @expense.date</p>
+<p><strong>Amount:</strong> @expense.amount</p>
+<p><strong>Category:</strong> @expense.category</p>
