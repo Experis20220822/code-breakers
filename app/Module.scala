@@ -3,23 +3,17 @@
  *
  */
 
-import com.google.inject._
-import config.AppConfig
-import controllers.HomeController
-import org.mongodb.scala.{MongoClient, MongoDatabase}
 import com.google.inject.{AbstractModule, Provides}
 import org.mongodb.scala.{MongoClient, MongoDatabase}
 import play.api.Configuration
 import services._
-import views.html.index
-
-import java.lang.annotation.Target
 
 class Module extends AbstractModule {
   override def configure(): Unit = {
 
     @Provides
     def databaseProvider(configuration: Configuration): MongoDatabase = {
+      println("provider called with configuration" + configuration)
       val username = configuration.get[String]("mongo.username")
       val password = configuration.get[String]("mongo.password")
       val database = configuration.get[String]("mongo.database")
@@ -32,5 +26,6 @@ class Module extends AbstractModule {
     }
 
     bind(classOf[AsyncExpenseService]).to(classOf[ExpenseRepository])
+    bind(classOf[AsyncUserService]).to(classOf[UserService])
   }
 }
