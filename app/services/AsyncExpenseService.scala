@@ -17,7 +17,7 @@ import com.google.inject.ImplementedBy
 
 @ImplementedBy(classOf[ExpenseRepository])
 trait AsyncExpenseService {
-  def findById(id: Long): Future[Option[Expense]]
+  def findById(id: String): Future[Option[Expense]]
 
   def create(expense: Expense): Unit
 

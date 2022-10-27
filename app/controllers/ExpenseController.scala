@@ -54,7 +54,7 @@ case class ExpenseData(date: Date, amount: Long, category: String)
           Future(BadRequest(view(formWithErrors, mode)))
         },
         expensesData => {
-          val id = MurmurHash3.stringHash(expensesData.date + expensesData.amount.toString + expensesData.category)
+          val id = MurmurHash3.stringHash(expensesData.date + expensesData.amount.toString + expensesData.category).toString
           val newExpense = Expense(
             id,
             expensesData.date,
@@ -75,7 +75,7 @@ case class ExpenseData(date: Date, amount: Long, category: String)
       )
   }
 
-  def show(id: Long, mode: Mode): Action[AnyContent] = Action.async { implicit request =>
+  def show(id: String, mode: Mode): Action[AnyContent] = Action.async { implicit request =>
     val maybeExpense = expenseService.findById(id)
     maybeExpense
       .map {
