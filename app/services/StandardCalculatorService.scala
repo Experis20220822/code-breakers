@@ -11,26 +11,40 @@ import javax.inject.Inject
 
 
 class StandardCalculatorService @Inject()  extends AsyncCalculatorService {
-  override def calculateSalary(salary: Calculator): Double = {
-     val currentTax = 12570
+  def calculateTaxAllowance(taxCode: String): Double = {
+    val defaultAllowance = 12570
 
-
-    if (salary.pension != 0 && salary.stdLoad != 0)
-      salary.taxCode match {
-        case "L"  => if (salary.salary - currentTax > 0) (salary.salary - currentTax) / 1.20 - (salary.pension) - salary.stdLoad else salary.salary
-        case "M" => if (salary.salary - currentTax > 0) ((salary.salary- currentTax) * 1.10) / 1.20 - (salary.pension) - salary.stdLoad else salary.salary
-        case "N" => if (salary.salary - currentTax > 0) ((salary.salary - currentTax) / 1.10) / 1.20 - (salary.pension) - salary.stdLoad else salary.salary
-      } else if (salary.pension == 0 && salary.stdLoad != 0)
-      salary.taxCode match {
-        case "L" => if (salary.salary - currentTax > 0) (salary.salary - currentTax) / 1.20 - salary.stdLoad else salary.salary
-        case "M" => if (salary.salary - currentTax > 0) ((salary.salary- currentTax) * 1.10) / 1.20 - salary.stdLoad else salary.salary
-        case "N" => if (salary.salary - currentTax > 0) ((salary.salary - currentTax) / 1.10) / 1.20 - salary.stdLoad else salary.salary
-      } else
-      salary.taxCode match {
-        case "L" =>if (salary.salary - currentTax > 0)  (salary.salary - currentTax) / 1.20  - (salary.pension) else salary.salary
-        case "M" =>if (salary.salary - currentTax > 0) ((salary.salary- currentTax) * 1.10) / 1.20 - (salary.pension) else salary.salary
-        case "N" =>if (salary.salary - currentTax > 0) ((salary.salary - currentTax) / 1.10) / 1.20 - (salary.pension) else salary.salary
-      }
-
+    taxCode match {
+      case "L" => defaultAllowance
+      case "M" => defaultAllowance * 1.10
+      case "N" => defaultAllowance * 0.9
+    }
   }
+  def calculateBandSalary(salary: Double, threshold: Double): Double = {
+    val bandSalary = salary - threshold
+
+    bandSalary match {
+      case x if x > 0 => bandSalary
+      case _ => 0
+    }
+  }
+  def calculateOverallTax(allowance: Double, salary: Double): Double = {
+    val additionalRateSalary = calculateBandSalary(salary, 150000)// 150_000 - 150_000 = 0
+    val higherRateSalary = calculateBandSalary(salary - additionalRateSalary, 50270)  // 150_000 - 0 - 50270 = 99730
+    val basicRateSalary = calculateBandSalary(salary - allowance - higherRateSalary - additionalRateSalary, 0) // 150_000 - 12570 - 99730 =
+
+    basicRateSalary * 0.2 + higherRateSalary * 0.4 + additionalRateSalary * 0.45
+  }
+  def calculateAfterTaxAmount(taxCode: String, salary: Double): Double = {
+    val allowance = calculateTaxAllowance(taxCode)
+    val totalTax = calculateOverallTax(allowance, salary)
+
+    salary - totalTax
+  }
+  override def calculateSalary(salary: Calculator): Double = {
+    calculateAfterTaxAmount(salary.taxCode, salary.salary - salary.pension)
+  }
+
+
+
 }
