@@ -34,6 +34,7 @@
 
         @govukDateInput(DateInput(
             id = "date",
+            hint = Some(Hint(content = Text("For example, 27 3 2007"))),
             fieldset = Some(Fieldset(
                             legend = Some(Legend(
                                 classes = "govuk-fieldset__legend--l",
@@ -85,8 +86,6 @@
             )
         ))
 
-        @govukButton(
-            Button(href = Some(routes.ExpenseController.index().url), content = HtmlContent("Add Expense"))
-        )
+        @govukButton(ButtonViewModel (content = HtmlContent("Add Expense")))
     }
 }
