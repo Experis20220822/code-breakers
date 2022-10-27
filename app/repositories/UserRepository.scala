@@ -18,10 +18,17 @@ class UserRepository @Inject()(mongoDatabase: MongoDatabase) {
 
   private def byId(id: String): Bson = Filters.equal("_id", id)
 
+  private def byStringField(query: String, fieldName: String): Bson = Filters.equal(fieldName, query)
   def get(id: String): Future[Option[User]] = {
     collection.find(byId(id))
       .map(d => documentToUser(d)).toSingle().headOption()
   }
+
+  def getUsername(username: String): Future[Option[User]] = {
+    collection.find(byStringField(username, "username"))
+      .map(d => documentToUser(d)).toSingle().headOption()
+  }
+
 
   def create(user: User): Future[Option[String]] = {
     println("invoking create in repository")
@@ -34,7 +41,7 @@ class UserRepository @Inject()(mongoDatabase: MongoDatabase) {
     ).map(r => r.getInsertedId.asObjectId().getValue.toString).headOption()
   }
 
-  def documentToUser(document: Document): User = {
-    User(document("_id").toString, document("email").toString, document("username").toString, document("password").toString)
+  def documentToUser(d: Document): User = {
+    User(d("_id").asObjectId().getValue.toString, d("email").asString().getValue, d("username").asString().getValue, d("password").asString().getValue)
   }
 }

@@ -6,6 +6,7 @@
 # An example controller showing a sample home page
 GET     /                           controllers.HomeController.index()
 GET     /login                      controllers.LoginController.index()
+GET     /logged-in                  controllers.LoginController.login()
 GET     /create-an-account          controllers.RegisterController.init(mode: Mode = NormalMode)
 POST    /account-created            controllers.RegisterController.create(mode:Mode = NormalMode)
 GET     /account-created/:id        controllers.RegisterController.show(id: String, mode:Mode = NormalMode)

@@ -15,6 +15,7 @@ class UserService @Inject() (userRepository: UserRepository) extends AsyncUserSe
   import scala.concurrent.ExecutionContext.Implicits.global
   override def create(user: User): Future[Option[String]] = userRepository.create(user)
 
+  override def getUsername(username: String): Future[Option[User]] = userRepository.getUsername(username)
   override def findById(id: String): Future[Option[User]] = Future(Some (User("FakeID", "FakeEmail", "fakePassword", "fakePassword")))
 
 }
