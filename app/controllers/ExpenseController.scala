@@ -28,10 +28,6 @@ case class ExpenseData(date: Date, amount: Long, category: String)
                                               (implicit val executionContext: ExecutionContext) extends FrontendController(mcc) with I18nSupport {
 
 
-  def list() = Action { implicit request =>
-    Ok("will show list of expenses")
-  }
-
   val form: Form[ExpenseData] = Form(
     mapping(
       "date" -> mapping(
