@@ -5,6 +5,6 @@
 
 package models
 
-case class Calculator(salary: Long, taxCode: String, pension: Long, stdLoad: Long) {
+case class Calculator(id: String, salary: Long, taxCode: String, pension: Long, stdLoad: Long) {
 
 }

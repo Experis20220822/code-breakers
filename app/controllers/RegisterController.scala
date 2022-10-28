@@ -7,7 +7,7 @@ package controllers
 
 import models._
 import play.api.data.Form
-import play.api.data.Forms.{mapping, text}
+import play.api.data.Forms.{longNumber, mapping, number, text}
 import services.{AsyncUserService, UserService}
 
 import javax.inject.{Inject, Singleton}
@@ -18,10 +18,10 @@ import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendController
 import views.html.RegisterPage
 import views.html.text_input
 import play.api.data.validation.Constraints.nonEmpty
+
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent._
 import ExecutionContext.Implicits.global
-
 import scala.util.hashing.MurmurHash3
 
 case class RegisterData( email: String, username: String, password: String)
@@ -40,6 +40,7 @@ case class RegisterData( email: String, username: String, password: String)
         "email" -> text.verifying(nonEmpty),
         "username" -> text.verifying(nonEmpty),
         "password" -> text.verifying(nonEmpty),
+
       )(RegisterData.apply)
       (RegisterData.unapply)
     )
@@ -57,7 +58,8 @@ case class RegisterData( email: String, username: String, password: String)
             id,
             userData.email,
             userData.username,
-            userData.password
+            userData.password,
+
           )
           println("Yay!" + newUser)
           userService.create(newUser).map {

@@ -5,10 +5,12 @@
 
 package repositories
 
-import models.User
+import models.{Calculator, User}
 import org.mongodb.scala.bson.conversions.Bson
+import org.mongodb.scala.model.Aggregates.{addFields, set}
 import org.mongodb.scala.model.Filters
-import org.mongodb.scala.{Document, MongoCollection, MongoDatabase}
+import org.mongodb.scala.model.Filters.equal
+import org.mongodb.scala.{Document, MongoCollection, MongoDatabase, model}
 
 import javax.inject.Inject
 import scala.concurrent.Future
@@ -40,6 +42,8 @@ class UserRepository @Inject()(mongoDatabase: MongoDatabase) {
       )
     ).map(r => r.getInsertedId.asObjectId().getValue.toString).headOption()
   }
+
+
 
   def documentToUser(d: Document): User = {
     User(d("_id").asObjectId().getValue.toString, d("email").asString().getValue, d("username").asString().getValue, d("password").asString().getValue)

@@ -18,4 +18,5 @@ class UserService @Inject() (userRepository: UserRepository) extends AsyncUserSe
   override def getUsername(username: String): Future[Option[User]] = userRepository.getUsername(username)
   override def findById(id: String): Future[Option[User]] = Future(Some (User("FakeID", "FakeEmail", "fakePassword", "fakePassword")))
 
+
 }

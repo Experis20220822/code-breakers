@@ -6,7 +6,9 @@
 package controllers
 
 import models.Calculator
-import org.mongodb.scala.MongoDatabase
+import org.mongodb.scala.{MongoDatabase, model}
+import org.mongodb.scala.model.{Aggregates, Filters}
+import org.mongodb.scala.model.Aggregates.addFields
 import play.api.Mode
 import play.api.data.Form
 import play.api.data.Forms.{char, longNumber, mapping, number, text}
@@ -14,13 +16,15 @@ import play.api.http.Writeable.wByteArray
 import play.api.i18n.I18nSupport
 import play.api.libs.Jsonp.contentTypeOf_Jsonp
 import play.api.mvc.{Action, AnyContent, ControllerComponents, Cookie, MessagesControllerComponents}
-import services.{AsyncCalculatorService, StandardCalculatorService}
+import services.{AsyncCalculatorService, StandardCalculatorService, UserService}
 import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendController
 import views.html.helper.form
 import views.html.{calTestForm, text_input}
 
 import javax.inject.Inject
 import scala.concurrent.{ExecutionContext, Future}
+import scala.util.hashing.MurmurHash3
+import scala.util.hashing.MurmurHash3._
 
 
 
@@ -32,7 +36,8 @@ class CalculatorController @Inject()
  textInputView: text_input,
  val controller: ControllerComponents,
  val calculatorService: AsyncCalculatorService,
- // mongoDatabase: MongoDatabase
+ val salaryService: StandardCalculatorService,
+   mongoDatabase: MongoDatabase
 )
 (implicit val executionContext: ExecutionContext) extends FrontendController(mcc) with I18nSupport {
 
@@ -57,25 +62,43 @@ class CalculatorController @Inject()
   }
 
 
-  def calculate(): Action[AnyContent] = Action { implicit request =>
+  def calculate(): Action[AnyContent] = Action.async { implicit request =>
     calculatorForm.bindFromRequest.fold(
       formWithErrors => {
         println("Something gone wrong" + formWithErrors)
-        BadRequest(view("Lest ", "Test ", "This ", formWithErrors, "-1"))
+        Future(BadRequest(view("Lest ", "Test ", "This ", formWithErrors, "-1")))
       },
       calculatorData => {
-
-        val calculatorResult = new StandardCalculatorService
-        val calculator = Calculator(calculatorData.salary, calculatorData.taxCode, calculatorData.pensionCount, calculatorData.stdLoan)
-        println(calculator)
-        val calcResult = calculatorResult.calculateSalary(calculator)
+        val id = MurmurHash3.stringHash(calculatorData.salary.toString).toString
+        val calculator = models.Calculator(id, calculatorData.salary, calculatorData.taxCode, calculatorData.pensionCount, calculatorData.stdLoan)
+        val calcResult = calculatorService.calculateSalary(calculator)
         val salaryResult = BigDecimal(calcResult)
         val roundedResult = salaryResult.setScale(2, BigDecimal.RoundingMode.HALF_UP)
-        Redirect(routes.ExpenseController.index()).withCookies(Cookie.apply("HMRCUser", roundedResult.toString))
+        salaryService.create(calculator).map {
+          case Some(value) =>  Redirect(routes.ExpenseController.index()).withCookies(Cookie.apply("HMRCUser", roundedResult.toString))
+          case None => NotFound("Sorry, cannot add this ")
+        }
+
+
       }
     )
 
   }
+
+//  def update(salary: String) = Action.async { implicit request =>
+//    val userName = request.cookies.get("HMRCUser")
+//      .map(c => c.name)
+//      .getOrElse(NotFound("Please log in!"))
+//
+//    val usersCollection = mongoDatabase.getCollection("users")
+//    val aggrigate = usersCollection.aggregate(
+//      Seq(
+//        Aggregates.`match`(Filters.equal("username", userName)),
+//        Aggregates.addFields(model.Field("salary", salary))
+//      )
+//    )
+//
+//  }
 
   def show(result: Double): Action[AnyContent] = Action { implicit request =>
     val salaryResult = BigDecimal(result)

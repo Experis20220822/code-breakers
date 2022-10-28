@@ -6,11 +6,14 @@
 package services
 import models.Calculator
 import org.mongodb.scala.MongoDatabase
+import repositories.SalaryRepository
 
 import javax.inject.Inject
+import scala.concurrent.Future
 
 
-class StandardCalculatorService @Inject()  extends AsyncCalculatorService {
+class StandardCalculatorService @Inject()(salaryRepository: SalaryRepository)  extends AsyncCalculatorService {
+  override def create(salary: Calculator): Future[Option[String]] = salaryRepository.create(salary)
   def calculateTaxAllowance(taxCode: String): Double = {
     val defaultAllowance = 12570
 
@@ -29,9 +32,9 @@ class StandardCalculatorService @Inject()  extends AsyncCalculatorService {
     }
   }
   def calculateOverallTax(allowance: Double, salary: Double): Double = {
-    val additionalRateSalary = calculateBandSalary(salary, 150000)// 150_000 - 150_000 = 0
-    val higherRateSalary = calculateBandSalary(salary - additionalRateSalary, 50270)  // 150_000 - 0 - 50270 = 99730
-    val basicRateSalary = calculateBandSalary(salary - allowance - higherRateSalary - additionalRateSalary, 0) // 150_000 - 12570 - 99730 =
+    val additionalRateSalary = calculateBandSalary(salary, 150000)
+    val higherRateSalary = calculateBandSalary(salary - additionalRateSalary, 50270)
+    val basicRateSalary = calculateBandSalary(salary - allowance - higherRateSalary - additionalRateSalary, 0)
 
     basicRateSalary * 0.2 + higherRateSalary * 0.4 + additionalRateSalary * 0.45
   }
@@ -41,8 +44,23 @@ class StandardCalculatorService @Inject()  extends AsyncCalculatorService {
 
     salary - totalTax
   }
+
+  def studentLoan(salary: Double): Double = {
+    val monthlySlary  = salary / 12
+    val salaryThreshold = monthlySlary - 1682
+
+    salaryThreshold match {
+      case x if x > 0 => salaryThreshold
+      case _ => 0
+    }
+  }
+  def studentLoanCalculation(salary: Double): Double = {
+    val studentLoanPayment =  studentLoan(salary)
+    if (studentLoanPayment == 0) studentLoanPayment else studentLoanPayment * 0.09
+  }
+
   override def calculateSalary(salary: Calculator): Double = {
-    calculateAfterTaxAmount(salary.taxCode, salary.salary - salary.pension)
+    calculateAfterTaxAmount(salary.taxCode, salary.salary - salary.pension - studentLoanCalculation(salary.salary))
   }
 
 
