@@ -7,7 +7,6 @@
 @import uk.gov.hmrc.govukfrontend.views.html.components.implicits._
 @import uk.gov.hmrc.govukfrontend.views.Implicits._
 @import uk.gov.hmrc.hmrcfrontend.views.html.components.implicits._
-@import uk.gov.hmrc.govukfrontend.views.viewmodels.input.PrefixOrSuffix
 
 
 @this(
@@ -22,13 +21,14 @@
     layout: Layout,
 )
 
-@(form: Form[_], mode: Mode)(implicit request: Request[_], messages: Messages)
+@(form: Form[_], mode: Mode, salary: String)(implicit request: Request[_], messages: Messages)
 
 @import uk.gov.hmrc.play._
 
 @layout(pageTitle = title(form, messages("Expense")), isWelshTranslationAvailable = true) {
     @govukBackLink(BackLink(href = routes.HomeController.index().url))
     <h1 class="govuk-heading-xl">@messages("Add an expense")</h1>
+    <h2>Your Salary after tax: £@salary</h2>
 
     @formHelper(action = routes.ExpenseController.create(), 'autoComplete -> "off") {
 
@@ -87,5 +87,6 @@
         ))
 
         @govukButton(ButtonViewModel (content = HtmlContent("Add Expense")))
+        <a href="@routes.ExpenseListController.list()">View expenses</a>
     }
 }

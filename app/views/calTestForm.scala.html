@@ -10,10 +10,10 @@
 
 
 @this(layout: Layout, content: CalculatorPage)
-@(pageTitle: String, heading: String, message: String, form: Form[CalculatorFormData])(implicit request: Request[_], messages: Messages)
+@(pageTitle: String, heading: String, message: String, form: Form[CalculatorFormData], id: String)(implicit request: Request[_], messages: Messages)
 
 @import uk.gov.hmrc.play._
 
 @layout(pageTitle = pageTitle, isWelshTranslationAvailable = true) {
-    @content(form, NormalMode)
+    @content(form, NormalMode, id)
 }

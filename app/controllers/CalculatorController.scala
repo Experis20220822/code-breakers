@@ -6,20 +6,16 @@
 package controllers
 
 import models.Calculator
-import org.mongodb.scala.MongoDatabase
 import play.api.data.Form
-import play.api.data.Forms.{char, longNumber, mapping, number, text}
-import play.api.http.Writeable.wByteArray
+import play.api.data.Forms.{longNumber, mapping, text}
 import play.api.i18n.I18nSupport
-import play.api.libs.Jsonp.contentTypeOf_Jsonp
-import play.api.mvc.{Action, AnyContent, ControllerComponents, MessagesControllerComponents}
+import play.api.mvc.{Action, AnyContent, ControllerComponents, Cookie, MessagesControllerComponents}
 import services.{AsyncCalculatorService, StandardCalculatorService}
 import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendController
-import views.html.helper.form
 import views.html.{calTestForm, text_input}
 
 import javax.inject.Inject
-import scala.concurrent.{ExecutionContext, Future}
+import scala.concurrent.ExecutionContext
 
 
 
@@ -49,7 +45,10 @@ class CalculatorController @Inject()
   )
 
   def index(): Action[AnyContent] = Action { implicit request =>
-    Ok(view("Start up Calculator", "Heading", "SomeText", calculatorForm))
+    request.cookies.get("HMRCUser")
+      .map(c => Ok(view("Start up Calculator", "Heading", "SomeText", calculatorForm, c.value)))
+      .getOrElse(NotFound("Please log in!"))
+
   }
 
 
@@ -57,7 +56,7 @@ class CalculatorController @Inject()
     calculatorForm.bindFromRequest.fold(
       formWithErrors => {
         println("Something gone wrong" + formWithErrors)
-        BadRequest(view("Lest ", "Test ", "This ", formWithErrors))
+        BadRequest(view("Lest ", "Test ", "This ", formWithErrors, "-1"))
       },
       calculatorData => {
 
@@ -65,7 +64,9 @@ class CalculatorController @Inject()
         val calculator = Calculator(calculatorData.salary, calculatorData.taxCode, calculatorData.pensionCount, calculatorData.stdLoan)
         println(calculator)
         val calcResult = calculatorResult.calculateSalary(calculator)
-        Redirect(routes.CalculatorController.show(calcResult))
+        val salaryResult = BigDecimal(calcResult)
+        val roundedResult = salaryResult.setScale(2, BigDecimal.RoundingMode.HALF_UP)
+        Redirect(routes.ExpenseController.index()).withCookies(Cookie.apply("HMRCUser", roundedResult.toString))
       }
     )
 

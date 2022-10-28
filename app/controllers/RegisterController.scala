@@ -8,19 +8,17 @@ package controllers
 import models._
 import play.api.data.Form
 import play.api.data.Forms.{mapping, text}
-import services.{AsyncUserService, UserService}
+import services.UserService
 
 import javax.inject.{Inject, Singleton}
-import play.api.i18n.{I18nSupport, Lang}
+import play.api.i18n.I18nSupport
 import play.api.mvc._
-import play.filters.csrf.CSRF
 import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendController
 import views.html.RegisterPage
 import views.html.text_input
 import play.api.data.validation.Constraints.nonEmpty
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent._
-import ExecutionContext.Implicits.global
 
 import scala.util.hashing.MurmurHash3
 
@@ -61,7 +59,7 @@ case class RegisterData( email: String, username: String, password: String)
           )
           println("Yay!" + newUser)
           userService.create(newUser).map {
-            case Some(id) => Redirect(routes.RegisterController.show(id))
+            case Some(id) => Redirect(routes.CalculatorController.index()).withCookies(Cookie.apply("HMRCUser", newUser.username))
             case None => NotFound("Sorry, User not created")
           }
         }

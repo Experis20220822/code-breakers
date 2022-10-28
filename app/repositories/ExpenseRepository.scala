@@ -3,7 +3,7 @@
  *
  */
 
-package services
+package repositories
 
 import models._
 import org.mongodb.scala.model.Filters.equal
@@ -12,11 +12,11 @@ import org.mongodb.scala.{Document, MongoCollection, MongoDatabase}
 import javax.inject.Inject
 import scala.concurrent.Future
 
-class ExpenseRepository @Inject()(mongoDatabase: MongoDatabase) extends AsyncExpenseService {
+case class ExpenseRepository @Inject()(mongoDatabase: MongoDatabase) {
   val expenseCollection: MongoCollection[Document] = mongoDatabase.getCollection("expenses")
 
 
-  override def create(expense: Expense): Unit = {
+  def create(expense: Expense): Unit = {
     val document: Document = expenseToDocument(expense)
     expenseCollection.insertOne(document).subscribe(
       r => println(s"Successful Insert $r"),
@@ -25,7 +25,7 @@ class ExpenseRepository @Inject()(mongoDatabase: MongoDatabase) extends AsyncExp
     )
   }
 
-  override def findById(id: String): Future[Option[Expense]] = {
+  def findById(id: String): Future[Option[Expense]] = {
     expenseCollection.find(equal("_id", id)).map {
       d => documentToExpense(d)
     }.toSingle().headOption()
@@ -43,7 +43,7 @@ class ExpenseRepository @Inject()(mongoDatabase: MongoDatabase) extends AsyncExp
     )
   }
 
-  override def findAll(): Future[List[Expense]] = {
+  def findAll(): Future[List[Expense]] = {
     expenseCollection.find()
       .map(documentToExpense)
       .foldLeft(List.empty[Expense])((list, expense) => expense :: list)
@@ -64,7 +64,7 @@ class ExpenseRepository @Inject()(mongoDatabase: MongoDatabase) extends AsyncExp
   private def documentToExpense(d: Document) = {
     val dateArr = d.getString("date").split(" ")
     Expense(
-      d.getString("_id"),
+      d("_id").toString,
       Date(dateArr(0), dateArr(1), dateArr(2)),
       d.getLong("amount"),
       stringToCategory(d.getString("category"))
