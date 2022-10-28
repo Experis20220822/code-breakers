@@ -1,4 +1,4 @@
-# HMRC [Code-Breakers](https://staging.tiered-planet.net/code-breakers) Salary Tax Calculator
+# HMRC <a href ="https://staging.tiered-planet.net/code-breakers" target="_blank">Code-Breakers</a> Salary Tax Calculator
 <img src="public/images/webpage.png" width="600" />
 
 This app allows the user to calculate their annual salary after tax and allows you to add you expediencies.
@@ -17,8 +17,10 @@ This app allows the user to calculate their annual salary after tax and allows y
 - PlayFramework - was used to build the web application with Scala
 - HMRC.gov Framework - components were used to replicate the style and look of HMRC pages 
 
-### Wireframes
-Figma was used for the [planning](https://imgur.com/a/bOOCvcu) of our application and for the [wireframe](https://imgur.com/a/EPPuTaL)
+### Planning & Wireframes
+Jira was used to create a Kanban board for creating and assigning issues for the project
+
+Figma was used for the <a href="https://imgur.com/a/bOOCvcu" target="_blank">planning</a> of our application and for the <a href="https://imgur.com/a/EPPuTaL" target="_blank">wireframe</a>
 
 -----
 # Features
@@ -50,27 +52,30 @@ Figma was used for the [planning](https://imgur.com/a/bOOCvcu) of our applicatio
 # Technologies Used
 
 **Languages Used**
-- [Scala](https://www.scala-lang.org/)
+- <a href="https://www.scala-lang.org/" target="_blank">Scala</a>
 
 **Libraries & Frameworks**
-- [Gov.uk Design](https://design-system.service.gov.uk/get-started/)
-- [Play Framework](https://www.playframework.com/)
-- [Docker](https://www.docker.com/)
-- [MongoDB](https://www.mongodb.com/)
+- <a href="https://design-system.service.gov.uk/get-started/" target="_blank">Gov.uk Design</a>
+- <a href="https://www.playframework.com/" target="_blank">Play Framework</a>
+- <a href="https://www.docker.com/" target="_blank">Docker</a>
+- <a href="https://www.mongodb.com/" target="_blank">MongoDB</a>
 
 -----
 # Testing
 Manual testing was carried out locally each feature was tested to ensure it was fully 
 
-Testing was carried out for the following:
+Local Testing was carried out for the following:
 
 **Controllers**
 - ExpenseControllerSpec
 - RegisterControllerSpec
+- HomeControllerSpec
+- CalculatorControllerSpec
 
 **Models**
 - ExpenseSpec
 - UserSpec
+- StandardCalculatorSpec
 
 **scala**
 - NumberSpec
@@ -78,23 +83,24 @@ Testing was carried out for the following:
 
 **Services**
 - StandardCalculatorServiceTest
+- MongoExpenseServicesSpec
 
 ScalaCheck & Scoverage were implemented
 
 ------
 
 # Deployment
-- [Jenkins](https://www.jenkins.io/) was used for **CI** deployment
-- [Spinnaker](https://spinnaker.io/) was used for **CD** deployment
+- <a href="https://www.jenkins.io/" target="_blank">Jenkins</a> was used for **CI** deployment
+- <a href="https://spinnaker.io/" target="_blank">Spinnaker</a> was used for **CD** deployment
 
 -----
 
 # Future Development
-- The ability to calculate your monthly, weekly salary
+- The ability to calculate your monthly or weekly salary
 - A budgeting tool for Holidays, or any other big expenditure
 - Add a Savings Goal, so user knows how much they need to save per month to reach their savings target
 - Allow users the ability to add a new expense category
 - Sort and Filter the expense table
-- Incorporate Mockito into the testing
+
 
 # Credits
