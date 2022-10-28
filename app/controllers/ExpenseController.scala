@@ -16,7 +16,7 @@ import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendController
 import views.html.expenseForm
 
 import javax.inject.{Inject, Singleton}
-import scala.concurrent.{ExecutionContext}
+import scala.concurrent.ExecutionContext
 import scala.util.hashing.MurmurHash3
 
 case class ExpenseData(date: Date, amount: Long, category: String)
@@ -42,7 +42,7 @@ case class ExpenseData(date: Date, amount: Long, category: String)
   )
 
 
-  def create(mode: Mode) = Action {
+  def create(mode: Mode): Action[AnyContent] = Action {
     implicit request =>
       form.bindFromRequest().fold(
         formWithErrors => {
@@ -73,7 +73,6 @@ case class ExpenseData(date: Date, amount: Long, category: String)
 
   def index(mode: Mode): Action[AnyContent] = Action { implicit request =>
     request.cookies.get("HMRCUser").map(c => Ok(view(form, mode, c.value))).getOrElse(NotFound("Need to be logged in"))
-
   }
 
 }
