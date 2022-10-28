@@ -14,7 +14,7 @@ import play.api.test._
 import play.api.test.Helpers._
 import repositories.ExpenseRepository
 import services.ExpenseService
-import views.html.expenseForm
+import views.html.{expenseForm, expenseTable}
 
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -31,6 +31,15 @@ class ExpenseControllerSpec extends PlaySpec with GuiceOneAppPerTest with Inject
       status(expenseFormPage) mustBe OK
       contentType(expenseFormPage) mustBe Some("text/html")
       contentAsString(expenseFormPage) must include("Add an expense")
+    }
+    "render the list of expenses in the /expenses page" in {
+      val controller = new ExpenseListController(stubMessagesControllerComponents(), app.injector.instanceOf[expenseTable], new ExpenseService(ExpenseRepository(getDb)))
+      val request = CSRFTokenHelper.addCSRFToken(FakeRequest(GET, "/expense"))
+      val expenseTablePage = controller.list().apply(request)
+
+      status(expenseTablePage) mustBe OK
+      contentType(expenseTablePage) mustBe Some("text/html")
+      contentAsString(expenseTablePage) must include("Expense Table")
     }
   }
 
