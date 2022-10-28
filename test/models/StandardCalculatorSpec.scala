@@ -1,3 +1,8 @@
+/*
+ * Copyright 2022 HM Revenue & Customs
+ *
+ */
+
 package models
 
 import org.scalatestplus.play.PlaySpec
