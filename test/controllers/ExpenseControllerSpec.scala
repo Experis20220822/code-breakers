@@ -5,10 +5,8 @@
 
 package controllers
 
-import com.dimafeng.testcontainers.{ForAllTestContainer, MongoDBContainer}
 import com.typesafe.config.ConfigFactory
 import models.NormalMode
-import org.mongodb.scala.{MongoClient, MongoDatabase}
 import org.scalatestplus.play._
 import org.scalatestplus.play.guice._
 import play.api.inject.guice.GuiceApplicationBuilder
@@ -16,14 +14,8 @@ import play.api.mvc.Cookie
 import play.api.{Application, Configuration}
 import play.api.test._
 import play.api.test.Helpers._
-import repositories.ExpenseRepository
-import services.ExpenseService
-import views.html.{expenseForm, expenseTable}
 
-import scala.concurrent.ExecutionContext.Implicits.global
-
-class ExpenseControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injecting with ForAllTestContainer {
-  val container: MongoDBContainer = new MongoDBContainer()
+class ExpenseControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injecting {
   override def fakeApplication(): Application = { GuiceApplicationBuilder().configure(Configuration(ConfigFactory.load("application.conf"))).build() }
 
   "ExpenseController GET" should {
