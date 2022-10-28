@@ -6,7 +6,7 @@
 package services
 import models.Calculator
 import org.mongodb.scala.MongoDatabase
-import repositories.SalaryRepository
+import repositories.{MongoSalaryRepository, SalaryRepository}
 
 import javax.inject.Inject
 import scala.concurrent.Future

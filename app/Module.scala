@@ -6,6 +6,7 @@
 import com.google.inject.{AbstractModule, Provides}
 import org.mongodb.scala.{MongoClient, MongoDatabase}
 import play.api.Configuration
+import repositories.{MongoSalaryRepository, SalaryRepository}
 import services._
 
 class Module extends AbstractModule {
@@ -27,5 +28,6 @@ class Module extends AbstractModule {
 
     bind(classOf[AsyncExpenseService]).to(classOf[ExpenseService])
     bind(classOf[AsyncUserService]).to(classOf[UserService])
+    bind(classOf[SalaryRepository]).to(classOf[MongoSalaryRepository])
   }
 }
