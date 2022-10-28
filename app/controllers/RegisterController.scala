@@ -51,11 +51,12 @@ case class RegisterData( email: String, username: String, password: String)
         },
         userData => {
           val id = MurmurHash3.stringHash(userData.username).toString
+          val password = MurmurHash3.stringHash(userData.password).toString
           val newUser = models.User(
             id,
             userData.email,
             userData.username,
-            userData.password
+            password
           )
           println("Yay!" + newUser)
           userService.create(newUser).map {

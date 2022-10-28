@@ -6,6 +6,7 @@
 package controllers
 import play.api.data.Form
 import play.api.data.Forms.{mapping, text}
+
 import javax.inject.{Inject, Singleton}
 import play.api.i18n.I18nSupport
 import play.api.mvc.{Action, AnyContent, MessagesControllerComponents}
@@ -14,8 +15,10 @@ import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendController
 import views.html.login
 import views.html.text_input
 import play.api.data.validation.Constraints.nonEmpty
+
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.{ExecutionContext, Future}
+import scala.util.hashing.MurmurHash3
 
 
 
@@ -55,7 +58,7 @@ import scala.concurrent.{ExecutionContext, Future}
             .map {
               case Some(user) =>
                 println(user.password)
-                if (user.password == loginData.password) Redirect(routes.CalculatorController.index())
+                if (user.password == MurmurHash3.stringHash(loginData.password).toString) Redirect(routes.CalculatorController.index())
                 else NotFound("Password is Incorrect, try again")
               case None => NotFound("Sorry but Username was not found, try again")
             }
