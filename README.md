@@ -1,4 +1,5 @@
 # HMRC [Code-Breakers](https://staging.tiered-planet.net/code-breakers) Salary Tax Calculator
+<img src="public/images/webpage.png" width="600" />
 
 This app allows the user to calculate their annual salary after tax and allows you to add you expediencies.
 
