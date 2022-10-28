@@ -80,7 +80,8 @@ lazy val root = (project in file("."))
       "com.github.ghik" % "silencer-lib" % silencerVersion % Provided cross CrossVersion.full,
       "com.dimafeng" %% "testcontainers-scala-scalatest" % testContainersScalaVersion % "test",
       "com.dimafeng" %% "testcontainers-scala-mongodb" % testContainersScalaVersion % "test",
-      "org.scalatestplus.play" %% "scalatestplus-play" % "5.0.0" % Test
+      "org.scalatestplus.play" %% "scalatestplus-play" % "5.0.0" % Test,
+      "org.webjars.npm" % "bootstrap" % "5.2.2",
     )
   )
 

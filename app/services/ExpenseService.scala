@@ -6,6 +6,7 @@
 package services
 
 import models.{Date, Expense, Groceries}
+import repositories.ExpenseRepository
 
 import javax.inject.Inject
 import scala.concurrent.Future

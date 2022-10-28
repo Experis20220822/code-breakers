@@ -9,20 +9,9 @@
 @import uk.gov.hmrc.hmrcfrontend.views.html.components.implicits._
 
 
-@this(
-formHelper: FormWithCSRF,
-govukBackLink: GovukBackLink,
-govukButton: GovukButton,
-govukDateInput: GovukDateInput,
-govukErrorSummary: GovukErrorSummary,
-govukInput: GovukInput,
-govukLabel: GovukLabel,
-govukSelect: GovukSelect,
-layout: Layout,
-)
+@this(hmrcLayout: HmrcLayout, govukBackLink: GovukBackLink)
 
-@(expense: Expense)
-
+@(expenses: List[Expense])
 <head>
  <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -48,9 +37,24 @@ layout: Layout,
  </div>
 </nav>
 <div class="content-container">
-<h1>Your Expense</h1>
+<h1>Expense Table</h1>
 
-<p><strong>Date:</strong> @expense.date.day / @expense.date.month / @expense.date.year</p>
-<p><strong>Amount:</strong> £@expense.amount</p>
-<p><strong>Category:</strong> @expense.category</p>
+<table class="table">
+ <thead>
+ <tr>
+  <th>Date</th>
+  <th>Amount</th>
+  <th>Category</th>
+ </tr>
+ </thead>
+ <tbody>
+ @for(expense <- expenses) {
+ <tr>
+  <th>@expense.date.day / @expense.date.month / @expense.date.year </th>
+  <td>£@expense.amount</td>
+  <td>@expense.category</td>
+ </tr>
+ }
+ </tbody>
+</table>
 </div>

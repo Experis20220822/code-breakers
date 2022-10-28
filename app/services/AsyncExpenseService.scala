@@ -14,6 +14,7 @@ import models.Expense
 
 import scala.concurrent.Future
 import com.google.inject.ImplementedBy
+import repositories.ExpenseRepository
 
 @ImplementedBy(classOf[ExpenseRepository])
 trait AsyncExpenseService {

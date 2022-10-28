@@ -7,13 +7,14 @@ package controllers
 
 import com.dimafeng.testcontainers.{ForAllTestContainer, MongoDBContainer}
 import models.NormalMode
-import org.mongodb.scala.MongoClient
+import org.mongodb.scala.{MongoClient, MongoDatabase}
 import org.scalatestplus.play._
 import org.scalatestplus.play.guice._
 import play.api.test._
 import play.api.test.Helpers._
-import services.ExpenseRepository
-import views.html.expenseForm
+import repositories.ExpenseRepository
+import services.ExpenseService
+import views.html.{expenseForm, expenseTable}
 
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -23,7 +24,7 @@ class ExpenseControllerSpec extends PlaySpec with GuiceOneAppPerTest with Inject
   "ExpenseController GET" should {
     pending
     "render the form to add a new expense in the /expense page" in {
-      val controller = new ExpenseController(stubMessagesControllerComponents(), app.injector.instanceOf[expenseForm], new ExpenseRepository(getDb))
+      val controller = new ExpenseController(stubMessagesControllerComponents(), app.injector.instanceOf[expenseForm], new ExpenseService(ExpenseRepository(getDb)))
       val request = CSRFTokenHelper.addCSRFToken(FakeRequest(GET, "/expense"))
       val expenseFormPage = controller.index(NormalMode).apply(request)
 
@@ -31,9 +32,18 @@ class ExpenseControllerSpec extends PlaySpec with GuiceOneAppPerTest with Inject
       contentType(expenseFormPage) mustBe Some("text/html")
       contentAsString(expenseFormPage) must include("Add an expense")
     }
+    "render the list of expenses in the /expenses page" in {
+      val controller = new ExpenseListController(stubMessagesControllerComponents(), app.injector.instanceOf[expenseTable], new ExpenseService(ExpenseRepository(getDb)))
+      val request = CSRFTokenHelper.addCSRFToken(FakeRequest(GET, "/expense"))
+      val expenseTablePage = controller.list().apply(request)
+
+      status(expenseTablePage) mustBe OK
+      contentType(expenseTablePage) mustBe Some("text/html")
+      contentAsString(expenseTablePage) must include("Expense Table")
+    }
   }
 
-  private def getDb = {
+  private def getDb: MongoDatabase = {
     val mongoClient: MongoClient =
       MongoClient(container.container.getConnectionString)
     val db = mongoClient.getDatabase("tests")

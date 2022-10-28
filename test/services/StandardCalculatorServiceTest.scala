@@ -7,7 +7,6 @@ package services
 
 import models.Calculator
 import org.scalatestplus.play.PlaySpec
-import services.StandardCalculatorService
 
 class StandardCalculatorServiceTest extends PlaySpec{
     "Calculator Service" must {
