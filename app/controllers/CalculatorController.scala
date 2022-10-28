@@ -5,26 +5,18 @@
 
 package controllers
 
-import models.Calculator
-import org.mongodb.scala.{MongoDatabase, model}
-import org.mongodb.scala.model.{Aggregates, Filters}
-import org.mongodb.scala.model.Aggregates.addFields
-import play.api.Mode
+import org.mongodb.scala.MongoDatabase
 import play.api.data.Form
-import play.api.data.Forms.{char, longNumber, mapping, number, text}
-import play.api.http.Writeable.wByteArray
+import play.api.data.Forms.{longNumber, mapping, text}
 import play.api.i18n.I18nSupport
-import play.api.libs.Jsonp.contentTypeOf_Jsonp
-import play.api.mvc.{Action, AnyContent, ControllerComponents, Cookie, MessagesControllerComponents}
-import services.{AsyncCalculatorService, StandardCalculatorService, UserService}
+import play.api.mvc._
+import services.{AsyncCalculatorService, StandardCalculatorService}
 import uk.gov.hmrc.play.bootstrap.frontend.controller.FrontendController
-import views.html.helper.form
 import views.html.{calTestForm, text_input}
 
 import javax.inject.Inject
 import scala.concurrent.{ExecutionContext, Future}
 import scala.util.hashing.MurmurHash3
-import scala.util.hashing.MurmurHash3._
 
 
 
@@ -85,20 +77,7 @@ class CalculatorController @Inject()
 
   }
 
-//  def update(salary: String) = Action.async { implicit request =>
-//    val userName = request.cookies.get("HMRCUser")
-//      .map(c => c.name)
-//      .getOrElse(NotFound("Please log in!"))
-//
-//    val usersCollection = mongoDatabase.getCollection("users")
-//    val aggrigate = usersCollection.aggregate(
-//      Seq(
-//        Aggregates.`match`(Filters.equal("username", userName)),
-//        Aggregates.addFields(model.Field("salary", salary))
-//      )
-//    )
-//
-//  }
+
 
   def show(result: Double): Action[AnyContent] = Action { implicit request =>
     val salaryResult = BigDecimal(result)

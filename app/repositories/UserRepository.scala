@@ -5,12 +5,10 @@
 
 package repositories
 
-import models.{Calculator, User}
+import models.User
 import org.mongodb.scala.bson.conversions.Bson
-import org.mongodb.scala.model.Aggregates.{addFields, set}
 import org.mongodb.scala.model.Filters
-import org.mongodb.scala.model.Filters.equal
-import org.mongodb.scala.{Document, MongoCollection, MongoDatabase, model}
+import org.mongodb.scala.{Document, MongoCollection, MongoDatabase}
 
 import javax.inject.Inject
 import scala.concurrent.Future
@@ -33,7 +31,7 @@ class UserRepository @Inject()(mongoDatabase: MongoDatabase) {
 
 
   def create(user: User): Future[Option[String]] = {
-    println("invoking create in repository")
+//    println("invoking create in repository")
     collection.insertOne(
       Document(
         "email" -> user.email,
