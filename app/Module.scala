@@ -14,7 +14,6 @@ class Module extends AbstractModule {
 
     @Provides
     def databaseProvider(configuration: Configuration): MongoDatabase = {
-
       val username = configuration.get[String]("mongo.username")
       val password = configuration.get[String]("mongo.password")
       val database = configuration.get[String]("mongo.database")
