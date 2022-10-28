@@ -22,9 +22,13 @@ import scala.concurrent.ExecutionContext
 
   def show(id: String) = Action.async { implicit request =>
     val maybeExpense = expenseService.findById(id)
+
     maybeExpense
       .map {
-        case Some(expense) => Ok(view(expense))
+        case Some(expense) => {
+          println(expense)
+          Ok(view(expense))
+        }
         case None => NotFound("Sorry, that expense cannot be found")
       }
   }
